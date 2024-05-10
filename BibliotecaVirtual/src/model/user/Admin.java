@@ -1,5 +1,4 @@
-package model;
-
+package model.user;
 //Aqui nós utilizamos herança
 public class Admin extends Usuario{
     private String cargo;

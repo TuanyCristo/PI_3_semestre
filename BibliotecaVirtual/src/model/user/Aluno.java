@@ -1,4 +1,4 @@
-package model;
+package model.user;
 
 //Aqui nós utilizamos herança
 public class Aluno extends Usuario{
@@ -20,8 +20,12 @@ public class Aluno extends Usuario{
         this.ra = ra;
     }
 
+    public void cadastrarAluno(String nome, String email, String senha, String ra){
+        Aluno a = new Aluno();
+        a.setNome(nome);
+        a.setEmail(email);
+        a.setSenha(senha);
+        a.setRa(ra);
+    }
 
-    
-
-    
 }
