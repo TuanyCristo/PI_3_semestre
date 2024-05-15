@@ -1,4 +1,4 @@
-package model.conection;
+package model;
 
 public class ConexaoDB {
     
