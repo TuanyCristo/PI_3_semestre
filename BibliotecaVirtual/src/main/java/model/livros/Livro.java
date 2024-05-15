@@ -1,7 +1,5 @@
 package model.livros;
 
-
-
 public class Livro {
     private int idLivro;
     private String titulo;

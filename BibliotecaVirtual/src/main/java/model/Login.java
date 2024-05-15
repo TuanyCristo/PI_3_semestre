@@ -10,7 +10,7 @@ public class Login {
     }
 
     public boolean fazerLogin(String email, String senha){
-        if(user != null && user.getEmail().equals(email) && user.getSenha().equals(senha)) return true;
+        if(user != null && user.getEmailInstitucional().equals(email) && user.getSenha().equals(senha)) return true;
         return false;
     }
     

@@ -1,19 +1,24 @@
 package model.user;
 
+import java.util.ArrayList;
+import model.livros.Livro;
+
 public class Usuario {
 private int idUsuario;
 private String nome;
-private String email;
+private String emailInstitucional;
 private String senha;
+private ArrayList<Livro> listaLivros;
 
 public Usuario() {
 }
 
-public Usuario(int idUsuario, String nome, String email, String senha) {
+public Usuario(int idUsuario, String nome, String emailInstitucional, String senha) {
     this.idUsuario = idUsuario;
     this.nome = nome;
-    this.email = email;
+    this.emailInstitucional = emailInstitucional;
     this.senha = senha;
+    this.listaLivros = new ArrayList<Livro>();
 }
 
 public int getIdUsuario() {
@@ -32,12 +37,12 @@ public void setNome(String nome) {
     this.nome = nome;
 }
 
-public String getEmail() {
-    return email;
+public String getEmailInstitucional() {
+    return emailInstitucional;
 }
 
-public void setEmail(String email) {
-    this.email = email;
+public void setEmailInstitucional(String emailInstitucional) {
+    this.emailInstitucional = emailInstitucional;
 }
 
 public String getSenha() {
@@ -48,6 +53,13 @@ public void setSenha(String senha) {
     this.senha = senha;
 }
 
+public ArrayList<Livro> getListaLivros() {
+    return listaLivros;
+}
+
+public void setListaLivros(ArrayList<Livro> listaLivros) {
+    this.listaLivros = listaLivros;
+}
 
 
 
