@@ -1,0 +1,12 @@
+model\livros\Livro.class
+model\ConexaoDB.class
+model\livros\LivroModel.class
+view\TelaTeste.class
+com\mycompany\bibliotecavirtualsenac\BibliotecaVirtualSenac$1.class
+model\reserva\Reserva.class
+view\TelaTeste$2.class
+model\user\Admin.class
+model\user\Usuario.class
+com\mycompany\bibliotecavirtualsenac\BibliotecaVirtualSenac.class
+view\TelaTeste$1.class
+model\livros\Estoque.class
