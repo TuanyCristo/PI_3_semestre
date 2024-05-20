@@ -4,7 +4,6 @@
 
 package com.mycompany.bibliotecavirtualsenac;
 
-import javax.swing.SwingUtilities;
 import view.TelaTeste;
 
 /**
