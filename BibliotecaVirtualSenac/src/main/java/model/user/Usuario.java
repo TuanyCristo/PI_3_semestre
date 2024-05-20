@@ -19,6 +19,7 @@ public Usuario(int idUsuario, String nome, String emailInstitucional, String sen
     this.emailInstitucional = emailInstitucional;
     this.senha = senha;
     this.listaLivros = new ArrayList<Livro>();
+    
 }
 
 public int getIdUsuario() {
@@ -59,6 +60,12 @@ public ArrayList<Livro> getListaLivros() {
 
 public void setListaLivros(ArrayList<Livro> listaLivros) {
     this.listaLivros = listaLivros;
+}
+
+@Override
+public String toString() {
+    return "Usuario [idUsuario=" + idUsuario + ", nome=" + nome + ", emailInstitucional=" + emailInstitucional
+            + ", senha=" + senha + "]";
 }
 
 

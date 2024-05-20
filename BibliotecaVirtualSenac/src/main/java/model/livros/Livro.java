@@ -58,6 +58,19 @@ public class Livro {
         this.qntExemplares = qntExemplares;
     }
 
+    @Override
+    public String toString() {
+        return "Livro [idLivro=" + idLivro + ", titulo=" + titulo + ", genero=" + genero + ", autor=" + autor
+                + ", qntExemplares=" + qntExemplares + "]";
+    }
+
+
+
+    
+
+    
+    
+
     
 
 }
