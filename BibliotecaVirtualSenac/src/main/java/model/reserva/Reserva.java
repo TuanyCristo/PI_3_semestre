@@ -3,6 +3,7 @@ package model.reserva;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import model.livros.Livro;
@@ -18,23 +19,22 @@ public class Reserva  {
     public Reserva() {
     }
 
-    public Reserva(int id, ArrayList<Livro> livro, Usuario user, String dataReserva, String dataDevolucao) {
+    public Reserva(int id, Livro livros, Usuario user, String dataParaReserva) {
         this.id = id;
-        this.livro = livro;
+        this.livro = new ArrayList<Livro>();
+        livro.add(livros);
         this.user = user;
         try {
-            this.dataReserva = new SimpleDateFormat("dd/MM/yyyy").parse(dataReserva);
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try {
-            this.dataDevolucao = new SimpleDateFormat("dd/MM/yyyy").parse(dataReserva);
+            this.dataReserva = new SimpleDateFormat("dd/MM/yyyy").parse(dataParaReserva);
         } catch (ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
+        Calendar ob = Calendar.getInstance();
+        ob.setTime(this.dataReserva);
+        ob.add(Calendar.DATE, + 10);
+        this.dataDevolucao = ob.getTime();
     }
 
     public int getId() {
@@ -80,5 +80,12 @@ public class Reserva  {
     public void adicionaLivro(Livro l){
         livro.add(l);
     }
+
+    @Override
+    public String toString() {
+        return "Reserva [id=" + id + ", livro=" + livro + ", user=" + user + ", dataReserva=" + dataReserva
+                + ", dataDevolucao=" + dataDevolucao + "]";
+    }
+    
     
 }
