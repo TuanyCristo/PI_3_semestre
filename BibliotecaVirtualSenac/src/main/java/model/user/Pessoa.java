@@ -1,6 +1,6 @@
 package model.user;
 
-public class Pessoa {
+abstract class Pessoa {
     private int idUsuario;
     private String nome;
     private String emailInstitucional;
