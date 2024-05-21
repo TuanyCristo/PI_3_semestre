@@ -1,9 +1,0 @@
-model\livros\Livro.class
-view\TelaTeste.class
-com\mycompany\bibliotecavirtualsenac\BibliotecaVirtualSenac$1.class
-model\reserva\Reserva.class
-model\user\Admin.class
-model\user\Usuario.class
-com\mycompany\bibliotecavirtualsenac\BibliotecaVirtualSenac.class
-view\TelaTeste$1.class
-model\livros\Estoque.class
