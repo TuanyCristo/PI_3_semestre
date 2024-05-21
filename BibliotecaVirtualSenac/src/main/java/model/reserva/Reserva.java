@@ -1,26 +1,48 @@
 package model.reserva;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Date;
 
 import model.livros.Livro;
 import model.user.Usuario;
 
 public class Reserva  {
+    private int id;
     private ArrayList<Livro> livro;
     private Usuario user;
-    private String dataReserva;
-    private String dataDevolucao;
+    private Date dataReserva;
+    private Date dataDevolucao;
 
     public Reserva() {
     }
 
-    public Reserva(Livro livro, Usuario user, String dataReserva, String dataDevolucao) {
-        this.livro = new ArrayList<Livro>();
-        Reserva.this.adicionaLivro(livro);
+    public Reserva(int id, ArrayList<Livro> livro, Usuario user, String dataReserva, String dataDevolucao) {
+        this.id = id;
+        this.livro = livro;
         this.user = user;
-        this.dataReserva = dataReserva;
-        this.dataDevolucao = dataDevolucao;
+        try {
+            this.dataReserva = new SimpleDateFormat("dd/MM/yyyy").parse(dataReserva);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            this.dataDevolucao = new SimpleDateFormat("dd/MM/yyyy").parse(dataReserva);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public ArrayList<Livro> getLivro() {
@@ -39,32 +61,24 @@ public class Reserva  {
         this.user = user;
     }
 
-    public String getDataReserva() {
+    public Date getDataReserva() {
         return dataReserva;
     }
 
-    public void setDataReserva(String dataReserva) {
+    public void setDataReserva(Date dataReserva) {
         this.dataReserva = dataReserva;
     }
 
-    public String getDataDevolucao() {
+    public Date getDataDevolucao() {
         return dataDevolucao;
     }
 
-    public void setDataDevolucao(String dataDevolucao) {
+    public void setDataDevolucao(Date dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
 
     public void adicionaLivro(Livro l){
         livro.add(l);
     }
-
-    @Override
-    public String toString() {
-        return "Reserva [livro=" + livro + ", user=" + user + ", dataReserva=" + dataReserva + ", dataDevolucao="
-                + dataDevolucao + "]";
-    }
-
-    
     
 }
