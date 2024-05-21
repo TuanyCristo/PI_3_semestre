@@ -1,10 +1,10 @@
 package model.user;
 
 abstract class Pessoa {
-    private int idUsuario;
-    private String nome;
-    private String emailInstitucional;
-    private String senha;
+    protected int idUsuario;
+    protected String nome;
+    protected String emailInstitucional;
+    protected String senha;
 
     public Pessoa() {
     }
