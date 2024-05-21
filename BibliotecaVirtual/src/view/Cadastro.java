@@ -26,35 +26,57 @@ public class Cadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        senhaco = new javax.swing.JTextField();
+        enterc = new javax.swing.JButton();
+        emailc = new javax.swing.JTextField();
+        senhac = new javax.swing.JTextField();
+        nome = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+        getContentPane().add(senhaco);
+        senhaco.setBounds(90, 270, 270, 22);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("sljslhflkdjfskjlfsajlksadjf");
-        jScrollPane1.setViewportView(jTextArea1);
+        enterc.setBackground(new java.awt.Color(255, 153, 0));
+        enterc.setForeground(new java.awt.Color(255, 255, 255));
+        enterc.setText("Enter");
+        getContentPane().add(enterc);
+        enterc.setBounds(170, 340, 72, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(135, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(191, Short.MAX_VALUE))
-        );
+        emailc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailcActionPerformed(evt);
+            }
+        });
+        getContentPane().add(emailc);
+        emailc.setBounds(90, 200, 270, 22);
+        getContentPane().add(senhac);
+        senhac.setBounds(90, 230, 270, 22);
+
+        nome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(nome);
+        nome.setBounds(90, 160, 270, 20);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cadastro (1).png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 402, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeActionPerformed
+
+    private void emailcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailcActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailcActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,7 +114,11 @@ public class Cadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField emailc;
+    private javax.swing.JButton enterc;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField nome;
+    private javax.swing.JTextField senhac;
+    private javax.swing.JTextField senhaco;
     // End of variables declaration//GEN-END:variables
 }
