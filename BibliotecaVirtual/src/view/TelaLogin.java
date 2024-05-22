@@ -6,7 +6,10 @@ package view;
 
 import controller.TelaLoginController;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import model.dao.AdminDAO;
+import model.dao.UsuarioDAO;
 
 /**
  *
@@ -15,6 +18,8 @@ import javax.swing.JTextField;
 public class TelaLogin extends javax.swing.JFrame {
 
     private final TelaLoginController controller;
+    private final UsuarioDAO usuarioDAO;
+    private final AdminDAO adminDAO;
 
 
     /**
@@ -23,6 +28,8 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
         controller = new TelaLoginController(this);
+        usuarioDAO = new UsuarioDAO();
+        adminDAO = new AdminDAO();
     }
 
     /**
@@ -105,10 +112,21 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroActionPerformed
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-        TelaAluno telaAluno = new TelaAluno();
-        telaAluno.setVisible(true);
-        //executa mensagem teste de clique no botão
-        this.controller.login();
+        String emailTexto = getEmail().getText();
+        String senhaTexto = String.valueOf(senha.getPassword());
+        if(usuarioDAO.loginEmail(emailTexto, senhaTexto)){
+            JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
+            TelaAluno tela = new TelaAluno();
+            tela.setVisible(true);
+            dispose();
+        } else if(adminDAO.loginEmail(emailTexto, senhaTexto)) {
+            JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
+            TelaAdmin tela = new TelaAdmin();
+            tela.setVisible(true);
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuário ou senha incorreto");
+        }
         
     }//GEN-LAST:event_entrarActionPerformed
 
@@ -174,11 +192,11 @@ public class TelaLogin extends javax.swing.JFrame {
         this.email = email;
     }
 
-    public JTextField getSenha() {
+    public JPasswordField getSenha() {
         return senha;
     }
 
-    public void setSenha(JTextField senha) {
+    public void setSenha(JPasswordField senha) {
         this.senha = senha;
     }
     
