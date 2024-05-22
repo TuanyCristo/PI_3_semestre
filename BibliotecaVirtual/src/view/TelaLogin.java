@@ -4,17 +4,25 @@
  */
 package view;
 
+import controller.TelaLoginController;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author tuany.bcristo
  */
 public class TelaLogin extends javax.swing.JFrame {
 
+    private final TelaLoginController controller;
+
+
     /**
      * Creates new form TelaLogin
      */
     public TelaLogin() {
         initComponents();
+        controller = new TelaLoginController(this);
     }
 
     /**
@@ -59,6 +67,11 @@ public class TelaLogin extends javax.swing.JFrame {
         entrar.setForeground(new java.awt.Color(51, 102, 255));
         entrar.setText("Entrar");
         entrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(entrar);
         entrar.setBounds(160, 320, 100, 30);
 
@@ -100,6 +113,12 @@ public class TelaLogin extends javax.swing.JFrame {
     private void cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadastroActionPerformed
+
+    private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
+        //executa mensagem teste de clique no botão
+        this.controller.login();
+        
+    }//GEN-LAST:event_entrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,4 +166,25 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField senha;
     // End of variables declaration//GEN-END:variables
+
+    public void exibeMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+
+    public JTextField getEmail() {
+        return email;
+    }
+
+    public void setEmail(JTextField email) {
+        this.email = email;
+    }
+
+    public JTextField getSenha() {
+        return senha;
+    }
+
+    public void setSenha(JTextField senha) {
+        this.senha = senha;
+    }
+    
 }

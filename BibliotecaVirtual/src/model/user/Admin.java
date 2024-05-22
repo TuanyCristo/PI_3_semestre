@@ -9,6 +9,7 @@ public class Admin extends Pessoa{
     public Admin(int idUsuario, String nome, String emailInstitucional, String senha, String cargo) {
         super(idUsuario, nome, emailInstitucional, senha);
         this.cargo = cargo;
+        this.nivelAcesso = "adm";
     }
 
     public String getCargo() {

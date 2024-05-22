@@ -24,6 +24,7 @@ public class Reserva  {
         this.livro = new ArrayList<Livro>();
         livro.add(livros);
         this.user = user;
+        //Recebemos uma String de data e formatamos
         try {
             this.dataReserva = new SimpleDateFormat("dd/MM/yyyy").parse(dataParaReserva);
         } catch (ParseException e) {
@@ -31,6 +32,7 @@ public class Reserva  {
             e.printStackTrace();
         }
 
+        //Adicionando 10 dias para devolução após o dia da reserva.
         Calendar ob = Calendar.getInstance();
         ob.setTime(this.dataReserva);
         ob.add(Calendar.DATE, + 10);
@@ -83,9 +85,12 @@ public class Reserva  {
 
     @Override
     public String toString() {
-        return "Reserva [id=" + id + ", livro=" + livro + ", user=" + user + ", dataReserva=" + dataReserva
-                + ", dataDevolucao=" + dataDevolucao + "]";
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return "Reserva [id=" + id + ", livro=" + livro + ", user=" + user 
+            + ", dataReserva=" + sdf.format(dataReserva) 
+            + ", dataDevolucao=" + sdf.format(dataDevolucao) + "]";
     }
+    
     
     
 }

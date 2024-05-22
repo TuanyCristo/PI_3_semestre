@@ -13,6 +13,7 @@ public class Usuario extends Pessoa {
     public Usuario(int idUsuario, String nome, String emailInstitucional, String senha) {
         super(idUsuario, nome, emailInstitucional, senha);
         this.listaLivros = new ArrayList<Livro>();
+        this.nivelAcesso = "user";
     }
 
     public ArrayList<Livro> getListaLivros() {
