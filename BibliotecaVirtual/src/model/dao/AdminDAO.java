@@ -25,9 +25,14 @@ public class AdminDAO{
             stmt.setString(1, email);
             try(ResultSet rs = stmt.executeQuery()){
                 if(rs.next()){
-                    Admin a = retornaAdmin(rs);
-                    if(a.confirmaSenha(a.getSenha(), senha))
-                    return true;
+                    String tipo = rs.getString("tipo");
+                    if(tipo.equals("admin")){
+                        Admin a = retornaAdmin(rs);
+                        if(a.confirmaSenha(a.getSenha(), senha))
+                        return true;
+                    } else {
+                        return false;
+                    }
                 }
             } catch(SQLException e){
                 System.out.println("E-mail não encontrado na base de dados");

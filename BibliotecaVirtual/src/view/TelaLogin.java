@@ -121,8 +121,8 @@ public class TelaLogin extends javax.swing.JFrame {
             dispose();
         } else if(adminDAO.loginEmail(emailTexto, senhaTexto)) {
             JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
-            TelaAdmin tela = new TelaAdmin();
-            tela.setVisible(true);
+            TelaAdmin telaAdmin = new TelaAdmin();
+            telaAdmin.setVisible(true);
             dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Usuário ou senha incorreto");

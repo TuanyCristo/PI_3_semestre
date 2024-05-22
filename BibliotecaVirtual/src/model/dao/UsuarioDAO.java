@@ -25,9 +25,14 @@ public class UsuarioDAO{
             stmt.setString(1, email);
             try(ResultSet rs = stmt.executeQuery()){
                 if(rs.next()){
-                    Usuario u = retornaUsuario(rs);
-                    if(u.confirmaSenha(u.getSenha(), senha))
-                    return true;
+                    String tipo = rs.getString("tipo");
+                    if(tipo.equals("regular")){
+                        Usuario u = retornaUsuario(rs);
+                        if(u.confirmaSenha(u.getSenha(), senha))
+                        return true;
+                    } else {
+                        return false;
+                    }
                 }
             } catch(SQLException e){
                 System.out.println("E-mail não encontrado na base de dados");
