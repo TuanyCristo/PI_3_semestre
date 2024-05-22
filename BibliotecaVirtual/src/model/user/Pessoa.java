@@ -51,7 +51,8 @@ abstract class Pessoa {
     }
 
     public void setSenha(String senha) {
-        if(validaSenha(senha)) this.senha = senhaHash(senha);
+        this.senha = senha;
+        //if(validaSenha(senha)) this.senha = senhaHash(senha);
 
     }
 
@@ -71,7 +72,6 @@ abstract class Pessoa {
             boolean numero = false;
             boolean simbolo = false;
 
-            senhaDigitada.toCharArray();
             for (int i = 0; i < senhaDigitada.length(); i++) {
                 char caractere = senhaDigitada.charAt(i);
                 if(Character.isUpperCase(caractere)){
@@ -82,12 +82,12 @@ abstract class Pessoa {
                     numero = true;                       
                 } else {
                     simbolo = true;
-                }
+                }     
             }
+            return maiuscula && minuscula && numero && simbolo;
         } else {
             return false;
         }
-            return true;
     }
 
     public String senhaHash(String senha){
@@ -119,7 +119,7 @@ abstract class Pessoa {
         
         if (partes.length == 2) {
             //verifica de a ultima parte do vetor é o email institucional
-            if(partes[1].equals("@senacsp.edu.br")){
+            if(partes[1].equals("senacsp.edu.br")){
                 return true;
             } else {
                 return false;
