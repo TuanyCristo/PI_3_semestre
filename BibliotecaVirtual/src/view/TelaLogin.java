@@ -115,14 +115,8 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroActionPerformed
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-        if(this.controller.login()){
-            JOptionPane.showMessageDialog(null, "Login efetuado");
-            TelaAluno telaAluno = new TelaAluno();
-            telaAluno.setVisible(true);
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
-        }
+        //executa mensagem teste de clique no botão
+        this.controller.login();
         
     }//GEN-LAST:event_entrarActionPerformed
 
