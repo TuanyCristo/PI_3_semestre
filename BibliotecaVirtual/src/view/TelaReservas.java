@@ -8,12 +8,12 @@ package view;
  *
  * @author isata
  */
-public class TelaAluno extends javax.swing.JFrame {
+public class TelaReservas extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaAluno
+     * Creates new form TelaReservas
      */
-    public TelaAluno() {
+    public TelaReservas() {
         initComponents();
     }
 
@@ -26,34 +26,17 @@ public class TelaAluno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        configConta = new javax.swing.JButton();
-        reservas = new javax.swing.JButton();
         historico = new javax.swing.JButton();
-        disponivelBreve = new javax.swing.JButton();
+        disponiveisBreve = new javax.swing.JButton();
         livrosDisponiveis = new javax.swing.JButton();
+        voltar = new javax.swing.JButton();
+        reservas = new javax.swing.JButton();
+        devolucao = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        configConta.setContentAreaFilled(false);
-        getContentPane().add(configConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 180, 20));
-
-        reservas.setBackground(new java.awt.Color(51, 75, 210));
-        reservas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        reservas.setForeground(new java.awt.Color(255, 255, 255));
-        reservas.setContentAreaFilled(false);
-        reservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        reservas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reservasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(reservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 160, 100));
-
-        historico.setBackground(new java.awt.Color(255, 153, 51));
-        historico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        historico.setForeground(new java.awt.Color(255, 255, 255));
         historico.setContentAreaFilled(false);
         historico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         historico.addActionListener(new java.awt.event.ActionListener() {
@@ -61,23 +44,12 @@ public class TelaAluno extends javax.swing.JFrame {
                 historicoActionPerformed(evt);
             }
         });
-        getContentPane().add(historico, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 160, 100));
+        getContentPane().add(historico, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, 150, 100));
 
-        disponivelBreve.setBackground(new java.awt.Color(51, 75, 210));
-        disponivelBreve.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        disponivelBreve.setForeground(new java.awt.Color(255, 255, 255));
-        disponivelBreve.setContentAreaFilled(false);
-        disponivelBreve.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        disponivelBreve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                disponivelBreveActionPerformed(evt);
-            }
-        });
-        getContentPane().add(disponivelBreve, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 220, 160, 100));
+        disponiveisBreve.setContentAreaFilled(false);
+        disponiveisBreve.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(disponiveisBreve, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 160, 90));
 
-        livrosDisponiveis.setBackground(new java.awt.Color(255, 153, 51));
-        livrosDisponiveis.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        livrosDisponiveis.setForeground(new java.awt.Color(255, 255, 255));
         livrosDisponiveis.setContentAreaFilled(false);
         livrosDisponiveis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         livrosDisponiveis.addActionListener(new java.awt.event.ActionListener() {
@@ -85,28 +57,61 @@ public class TelaAluno extends javax.swing.JFrame {
                 livrosDisponiveisActionPerformed(evt);
             }
         });
-        getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 160, 100));
+        getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 263, 150, 90));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Tela Aluno (3).png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, -1));
+        voltar.setContentAreaFilled(false);
+        voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        voltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, 150, 40));
+
+        reservas.setContentAreaFilled(false);
+        reservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        reservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reservasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(reservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 160, 100));
+
+        devolucao.setContentAreaFilled(false);
+        devolucao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        devolucao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                devolucaoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(devolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Tela Aluno - tabela - reservas.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void devolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolucaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_devolucaoActionPerformed
+
+    private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
+        TelaAluno telaAluno = new TelaAluno();
+        telaAluno.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_voltarActionPerformed
+
     private void reservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservasActionPerformed
-        TelaReservas telaRservas = new TelaReservas();
-        telaRservas.setVisible(true);
+        TelaReservas telaReservas = new TelaReservas();
+        telaReservas.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_reservasActionPerformed
 
     private void livrosDisponiveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_livrosDisponiveisActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_livrosDisponiveisActionPerformed
-
-    private void disponivelBreveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disponivelBreveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_disponivelBreveActionPerformed
 
     private void historicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historicoActionPerformed
         // TODO add your handling code here:
@@ -129,32 +134,33 @@ public class TelaAluno extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaReservas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaReservas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaReservas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaAluno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaReservas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TelaAluno telaAluno = new TelaAluno();
-                telaAluno.setSize(800, 600);
-                telaAluno.setVisible(true);
+                TelaReservas telaReservas = new TelaReservas();
+                telaReservas.setSize(800, 800);
+                telaReservas.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton configConta;
-    private javax.swing.JButton disponivelBreve;
+    private javax.swing.JButton devolucao;
+    private javax.swing.JButton disponiveisBreve;
     private javax.swing.JButton historico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton livrosDisponiveis;
     private javax.swing.JButton reservas;
+    private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

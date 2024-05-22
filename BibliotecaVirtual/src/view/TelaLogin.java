@@ -34,46 +34,14 @@ public class TelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        senha = new javax.swing.JPasswordField();
         cadastro = new javax.swing.JButton();
         entrar = new javax.swing.JButton();
-        senha = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel2.setText("para fazer seu cadastro");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(230, 270, 130, 40);
-
-        cadastro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        cadastro.setForeground(new java.awt.Color(255, 153, 51));
-        cadastro.setText("Clique aqui");
-        cadastro.setBorder(null);
-        cadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastroActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cadastro);
-        cadastro.setBounds(160, 280, 75, 20);
-
-        entrar.setBackground(new java.awt.Color(255, 153, 51));
-        entrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        entrar.setForeground(new java.awt.Color(51, 102, 255));
-        entrar.setText("Entrar");
-        entrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        entrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entrarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(entrar);
-        entrar.setBounds(160, 320, 100, 30);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         senha.setBackground(new java.awt.Color(204, 204, 204));
         senha.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -82,8 +50,32 @@ public class TelaLogin extends javax.swing.JFrame {
                 senhaActionPerformed(evt);
             }
         });
-        getContentPane().add(senha);
-        senha.setBounds(80, 240, 280, 30);
+        getContentPane().add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 290, 20));
+
+        cadastro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        cadastro.setForeground(new java.awt.Color(255, 153, 51));
+        cadastro.setBorder(null);
+        cadastro.setContentAreaFilled(false);
+        cadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 75, 10));
+
+        entrar.setBackground(new java.awt.Color(255, 153, 51));
+        entrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        entrar.setForeground(new java.awt.Color(51, 102, 255));
+        entrar.setBorder(null);
+        entrar.setContentAreaFilled(false);
+        entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 60, 30));
 
         email.setBackground(new java.awt.Color(204, 204, 204));
         email.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -92,33 +84,37 @@ public class TelaLogin extends javax.swing.JFrame {
                 emailActionPerformed(evt);
             }
         });
-        getContentPane().add(email);
-        email.setBounds(80, 200, 280, 30);
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 290, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/tela1.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 400, 400);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Login (1).png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
         
     }//GEN-LAST:event_emailActionPerformed
 
-    private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_senhaActionPerformed
-
     private void cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroActionPerformed
-        // TODO add your handling code here:
+        TelaCadastro telaCadastro = new TelaCadastro();
+        telaCadastro.setVisible(true);
+        // esperando a Ste fazer o commit da TelCadastro
+// TODO add your handling code here:
     }//GEN-LAST:event_cadastroActionPerformed
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
+        TelaAluno telaAluno = new TelaAluno();
+        telaAluno.setVisible(true);
         //executa mensagem teste de clique no botão
         this.controller.login();
         
     }//GEN-LAST:event_entrarActionPerformed
+
+    private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,8 +159,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JTextField email;
     private javax.swing.JButton entrar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField senha;
+    private javax.swing.JPasswordField senha;
     // End of variables declaration//GEN-END:variables
 
     public void exibeMensagem(String mensagem) {
