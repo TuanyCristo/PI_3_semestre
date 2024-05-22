@@ -14,11 +14,12 @@ abstract class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(int idUsuario, String nome, String emailInstitucional, String senha) {
+    public Pessoa(int idUsuario, String nome, String emailInstitucional, String senha, String nivelAcesso) {
         this.idUsuario = idUsuario;
         this.nome = nome;
         this.emailInstitucional = emailInstitucional;
         this.senha = senha;
+        this.nivelAcesso = nivelAcesso;
         
     }
 
@@ -126,6 +127,10 @@ abstract class Pessoa {
             }
         }
         return false;
+    }
+    
+    public boolean confirmaSenha(String senhaBD, String senhaText){
+        return senhaBD.equals(senhaText);
     }
 
 

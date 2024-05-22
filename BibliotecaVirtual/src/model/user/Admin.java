@@ -6,10 +6,10 @@ public class Admin extends Pessoa{
     public Admin() {
     }
 
-    public Admin(int idUsuario, String nome, String emailInstitucional, String senha, String cargo) {
-        super(idUsuario, nome, emailInstitucional, senha);
+    public Admin(int idUsuario, String nome, String emailInstitucional, String senha, String cargo, String nivelAcesso) {
+        super(idUsuario, nome, emailInstitucional, senha, nivelAcesso);
         this.cargo = cargo;
-        this.nivelAcesso = "adm";
+        this.nivelAcesso = "admin";
     }
 
     public String getCargo() {

@@ -5,9 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import model.conexao.Conexao;
-import model.user.Usuario;
+import model.user.Admin;
 
-public class UsuarioDAO{
+public class AdminDAO{
     private Connection con;
     
     public boolean loginEmail(String email, String senha){
@@ -25,8 +25,8 @@ public class UsuarioDAO{
             stmt.setString(1, email);
             try(ResultSet rs = stmt.executeQuery()){
                 if(rs.next()){
-                    Usuario u = retornaUsuario(rs);
-                    if(u.confirmaSenha(u.getSenha(), senha))
+                    Admin a = retornaAdmin(rs);
+                    if(a.confirmaSenha(a.getSenha(), senha))
                     return true;
                 }
             } catch(SQLException e){
@@ -39,17 +39,16 @@ public class UsuarioDAO{
         
         return false;
     }
-    
-    private Usuario retornaUsuario(ResultSet rs) throws SQLException {
-    return new Usuario(
+
+    private Admin retornaAdmin(ResultSet rs) throws SQLException {
+        return new Admin(
                     rs.getInt("id_user"),
                     rs.getString("nome"),
                     rs.getString("email"),
                     rs.getString("senha"),
+                    rs.getString("cargo"),
                     rs.getString("tipo")
-            );
-}
-        
-    
+                );
+    }
     
 }
