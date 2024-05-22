@@ -112,7 +112,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroActionPerformed
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-        String emailTexto = getEmail().getText();
+        String emailTexto = getEmail().getText().toLowerCase();
         String senhaTexto = String.valueOf(senha.getPassword());
         if(usuarioDAO.loginEmail(emailTexto, senhaTexto)){
             JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
