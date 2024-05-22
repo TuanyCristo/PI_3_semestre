@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "TelaLogin",
+      "request": "launch",
+      "mainClass": "view.TelaLogin",
+      "projectName": "BibliotecaVirtual_818ace5e"
+    },
+    {
+      "type": "java",
+      "name": "Teste",
+      "request": "launch",
+      "mainClass": "Teste",
+      "projectName": "BibliotecaVirtual_818ace5e"
+    },
+    {
+      "type": "java",
       "name": "Teste",
       "request": "launch",
       "mainClass": "Teste",
