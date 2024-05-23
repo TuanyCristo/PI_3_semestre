@@ -29,10 +29,10 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void initComponents() {
 
         cancelar = new javax.swing.JButton();
-        senhaco = new javax.swing.JTextField();
         cadastrar = new javax.swing.JButton();
         emailc = new javax.swing.JTextField();
-        senhac = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jPasswordField2 = new javax.swing.JPasswordField();
         nome = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
@@ -48,14 +48,6 @@ public class TelaCadastro extends javax.swing.JFrame {
         });
         getContentPane().add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 90, 30));
 
-        senhaco.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        senhaco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhacoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(senhaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 270, 20));
-
         cadastrar.setBackground(new java.awt.Color(255, 153, 0));
         cadastrar.setForeground(new java.awt.Color(255, 255, 255));
         cadastrar.setContentAreaFilled(false);
@@ -67,7 +59,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         });
         getContentPane().add(cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 90, 30));
 
-        emailc.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        emailc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         emailc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailcActionPerformed(evt);
@@ -75,15 +67,13 @@ public class TelaCadastro extends javax.swing.JFrame {
         });
         getContentPane().add(emailc, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 270, 20));
 
-        senhac.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        senhac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senhacActionPerformed(evt);
-            }
-        });
-        getContentPane().add(senhac, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 270, 20));
+        jPasswordField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 270, -1));
 
-        nome.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPasswordField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 270, -1));
+
+        nome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeActionPerformed(evt);
@@ -116,14 +106,6 @@ public class TelaCadastro extends javax.swing.JFrame {
         telaLogin.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelarActionPerformed
-
-    private void senhacoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhacoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_senhacoActionPerformed
-
-    private void senhacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhacActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_senhacActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,8 +182,8 @@ public class TelaCadastro extends javax.swing.JFrame {
     private javax.swing.JButton cancelar;
     private javax.swing.JTextField emailc;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField nome;
-    private javax.swing.JTextField senhac;
-    private javax.swing.JTextField senhaco;
     // End of variables declaration//GEN-END:variables
 }
