@@ -4,14 +4,17 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+import java.sql.Date;
+
+
+
 
 import model.livros.Livro;
 import model.user.Usuario;
 
 public class Reserva  {
     private int id;
-    private ArrayList<Livro> livro;
+    private ArrayList<Livro> listaLivro;
     private Usuario user;
     private Date dataReserva;
     private Date dataDevolucao;
@@ -21,22 +24,20 @@ public class Reserva  {
 
     public Reserva(int id, Livro livros, Usuario user, String dataParaReserva) {
         this.id = id;
-        this.livro = new ArrayList<Livro>();
-        livro.add(livros);
+        this.listaLivro = new ArrayList<>();
         this.user = user;
         //Recebemos uma String de data e formatamos
         try {
-            this.dataReserva = new SimpleDateFormat("dd/MM/yyyy").parse(dataParaReserva);
+            this.dataReserva = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(dataParaReserva);
         } catch (ParseException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
         }
 
         //Adicionando 10 dias para devolução após o dia da reserva.
         Calendar ob = Calendar.getInstance();
         ob.setTime(this.dataReserva);
         ob.add(Calendar.DATE, + 10);
-        this.dataDevolucao = ob.getTime();
+        this.dataDevolucao = (Date) ob.getTime();
     }
 
     public int getId() {
@@ -47,12 +48,12 @@ public class Reserva  {
         this.id = id;
     }
 
-    public ArrayList<Livro> getLivro() {
-        return livro;
+    public ArrayList<Livro> getListaLivro() {
+        return listaLivro;
     }
 
-    public void setLivro(ArrayList<Livro> livro) {
-        this.livro = livro;
+    public void setListaLivro(ArrayList<Livro> listaLivro) {
+        this.listaLivro = listaLivro;
     }
 
     public Usuario getUser() {
@@ -76,21 +77,12 @@ public class Reserva  {
     }
 
     public void setDataDevolucao(Date dataDevolucao) {
-        this.dataDevolucao = dataDevolucao;
+        //Adicionando 10 dias para devolução após o dia da reserva.
+        Calendar ob = Calendar.getInstance();
+        ob.setTime(this.dataReserva);
+        ob.add(Calendar.DATE, + 10);
+        this.dataDevolucao = (Date) ob.getTime();
     }
 
-    public void adicionaLivro(Livro l){
-        livro.add(l);
-    }
-
-    @Override
-    public String toString() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        return "Reserva [id=" + id + ", livro=" + livro + ", user=" + user 
-            + ", dataReserva=" + sdf.format(dataReserva) 
-            + ", dataDevolucao=" + sdf.format(dataDevolucao) + "]";
-    }
-    
-    
-    
+ 
 }

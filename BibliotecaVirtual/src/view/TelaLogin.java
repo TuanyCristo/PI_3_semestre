@@ -4,7 +4,8 @@
  */
 package view;
 
-import controller.TelaLoginController;
+import controller.AdminController;
+import controller.UsuarioController;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -17,9 +18,8 @@ import model.dao.UsuarioDAO;
  */
 public class TelaLogin extends javax.swing.JFrame {
  
-    private final TelaLoginController controller;
-    private final UsuarioDAO usuarioDAO;
-    private final AdminDAO adminDAO;
+    private final UsuarioController controllerUsuario;
+    private final AdminController controllerAdmin;
 
 
     /**
@@ -27,9 +27,8 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public TelaLogin() {
         initComponents();
-        controller = new TelaLoginController(this);
-        usuarioDAO = new UsuarioDAO();
-        adminDAO = new AdminDAO();
+        controllerUsuario = new UsuarioController();
+        controllerAdmin = new AdminController();
     }
 
     /**
@@ -56,7 +55,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 senhaActionPerformed(evt);
             }
         });
-        getContentPane().add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 290, 20));
+        getContentPane().add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 290, 30));
 
         cadastro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cadastro.setForeground(new java.awt.Color(255, 153, 51));
@@ -91,7 +90,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 emailActionPerformed(evt);
             }
         });
-        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 290, 20));
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 290, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Login (1).png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 400));
@@ -117,12 +116,12 @@ public class TelaLogin extends javax.swing.JFrame {
         String senhaTexto = String.valueOf(senha.getPassword());
         
         //validação
-        if(usuarioDAO.loginEmail(emailTexto, senhaTexto)){
+        if(controllerUsuario.login(emailTexto, senhaTexto)){
             JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
             TelaAluno tela = new TelaAluno();
             tela.setVisible(true);
             dispose();
-        } else if(adminDAO.loginEmail(emailTexto, senhaTexto)) {
+        } else if(controllerAdmin.login(emailTexto, senhaTexto)) {
             JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
             TelaAdmin telaAdmin = new TelaAdmin();
             telaAdmin.setVisible(true);
@@ -183,10 +182,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField senha;
     // End of variables declaration//GEN-END:variables
 
-    public void exibeMensagem(String mensagem) {
-        JOptionPane.showMessageDialog(null, mensagem);
-    }
-
     public JTextField getEmail() {
         return email;
     }
@@ -195,12 +190,5 @@ public class TelaLogin extends javax.swing.JFrame {
         this.email = email;
     }
 
-    public JPasswordField getSenha() {
-        return senha;
-    }
-
-    public void setSenha(JPasswordField senha) {
-        this.senha = senha;
-    }
-    
+   
 }

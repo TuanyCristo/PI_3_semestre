@@ -12,7 +12,7 @@ import model.conexao.Conexao;
 import model.livros.Livro;
 import model.user.Usuario;
 
-public class LivrosDAO implements InterfaceDAO<Livro, Integer>{
+public class LivroDAO implements InterfaceDAO<Livro, Integer>{
 
     private Connection con;
     
@@ -191,7 +191,7 @@ public class LivrosDAO implements InterfaceDAO<Livro, Integer>{
 
                 if (rs.next()) {
                     Livro livro = new Livro(
-                        rs.getInt("id"),
+                        rs.getInt("id_livro"),
                         rs.getString("titulo"),
                         rs.getString("autor"),
                         rs.getInt("quantExemplares")
