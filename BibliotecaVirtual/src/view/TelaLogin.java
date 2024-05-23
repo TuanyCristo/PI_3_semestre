@@ -16,7 +16,7 @@ import model.dao.UsuarioDAO;
  * @author tuany.bcristo
  */
 public class TelaLogin extends javax.swing.JFrame {
-
+ 
     private final TelaLoginController controller;
     private final UsuarioDAO usuarioDAO;
     private final AdminDAO adminDAO;
@@ -112,8 +112,11 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroActionPerformed
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
+        //adicionando o valor do JTextField em uma variavel
         String emailTexto = getEmail().getText().toLowerCase();
         String senhaTexto = String.valueOf(senha.getPassword());
+        
+        //validação
         if(usuarioDAO.loginEmail(emailTexto, senhaTexto)){
             JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
             TelaAluno tela = new TelaAluno();

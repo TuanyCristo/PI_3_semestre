@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author steph
@@ -39,7 +41,12 @@ public class Cadastro extends javax.swing.JFrame {
 
         enterc.setBackground(new java.awt.Color(255, 153, 0));
         enterc.setForeground(new java.awt.Color(255, 255, 255));
-        enterc.setText("Enter");
+        enterc.setText("Cadastrar");
+        enterc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entercActionPerformed(evt);
+            }
+        });
         getContentPane().add(enterc, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, -1, -1));
 
         emailc.addActionListener(new java.awt.event.ActionListener() {
@@ -47,7 +54,7 @@ public class Cadastro extends javax.swing.JFrame {
                 emailcActionPerformed(evt);
             }
         });
-        getContentPane().add(emailc, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 270, -1));
+        getContentPane().add(emailc, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 270, -1));
         getContentPane().add(senhac, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 270, -1));
 
         nome.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +79,10 @@ public class Cadastro extends javax.swing.JFrame {
     private void emailcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailcActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailcActionPerformed
+
+    private void entercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entercActionPerformed
+        
+    }//GEN-LAST:event_entercActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,6 +117,38 @@ public class Cadastro extends javax.swing.JFrame {
                 new Cadastro().setVisible(true);
             }
         });
+    }
+
+    public JTextField getEmailc() {
+        return emailc;
+    }
+
+    public void setEmailc(JTextField emailc) {
+        this.emailc = emailc;
+    }
+
+    public JTextField getNome() {
+        return nome;
+    }
+
+    public void setNome(JTextField nome) {
+        this.nome = nome;
+    }
+
+    public JTextField getSenhac() {
+        return senhac;
+    }
+
+    public void setSenhac(JTextField senhac) {
+        this.senhac = senhac;
+    }
+
+    public JTextField getSenhaco() {
+        return senhaco;
+    }
+
+    public void setSenhaco(JTextField senhaco) {
+        this.senhaco = senhaco;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

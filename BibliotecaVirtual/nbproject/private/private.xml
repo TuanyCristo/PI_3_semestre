@@ -3,14 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< Updated upstream
-            <file>file:/C:/Users/tcris/OneDrive/Área%20de%20Trabalho/PI_3_semestre/BibliotecaVirtual/src/model/dao/AdminDAO.java</file>
-            <file>file:/C:/Users/tcris/OneDrive/Área%20de%20Trabalho/PI_3_semestre/BibliotecaVirtual/src/model/dao/UsuarioDAO.java</file>
-=======
-            <file>file:/C:/Users/isata/OneDrive%20-%20SENAC%20-%20SP/Documentos/Faculdade%20Isa%20Tanisue/1.2024/Programação%20Orientada%20Objeto/PI_3_semestre/BibliotecaVirtual/src/view/TelaAluno.java</file>
-            <file>file:/C:/Users/isata/OneDrive%20-%20SENAC%20-%20SP/Documentos/Faculdade%20Isa%20Tanisue/1.2024/Programação%20Orientada%20Objeto/PI_3_semestre/BibliotecaVirtual/src/view/TelaLogin.java</file>
-            <file>file:/C:/Users/isata/OneDrive%20-%20SENAC%20-%20SP/Documentos/Faculdade%20Isa%20Tanisue/1.2024/Programação%20Orientada%20Objeto/PI_3_semestre/BibliotecaVirtual/src/view/TelaReservas.java</file>
->>>>>>> Stashed changes
+            <file>file:/C:/Users/tcris/Desktop/PI_3_semestre/BibliotecaVirtual/src/model/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/tcris/Desktop/PI_3_semestre/BibliotecaVirtual/src/model/dao/LivrosDAO.java</file>
         </group>
     </open-files>
 </project-private>
