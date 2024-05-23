@@ -5,21 +5,17 @@ import java.util.Optional;
 import model.dao.UsuarioDAO;
 import model.user.Usuario;
 import view.TelaAdmin;
+import view.TelaAluno;
 import view.TelaLogin;
 
 public class UsuarioController implements Controller<Usuario, Integer>{
     private TelaLogin view;
     private TelaAdmin viewAdmin;
     private UsuarioDAO user;
+    private TelaAluno telaAluno;
     
     public UsuarioController(){
         this.user = new UsuarioDAO();
-    }
-
-    public UsuarioController(TelaLogin view, TelaAdmin viewAdmin, UsuarioDAO user) {
-        this.view = view;
-        this.viewAdmin = viewAdmin;
-        this.user = user;
     }
 
     @Override
@@ -47,8 +43,20 @@ public class UsuarioController implements Controller<Usuario, Integer>{
         return user.buscarId(id);
     }
     
+    public Usuario buscarEmail(String email){
+        return user.buscarEmail(email);
+    }
+    
     public boolean login(String email, String senha){
-        return user.loginEmail(email, senha);
+        if(user.loginEmail(email, senha)){
+            Usuario u = buscarEmail(email);
+            telaAluno = new TelaAluno(u);
+            telaAluno.setVisible(true);
+            telaAluno.getNomeJLabel().setText(u.getNome());
+            return true;
+            
+        }
+        return false;
     }
     
     @Override

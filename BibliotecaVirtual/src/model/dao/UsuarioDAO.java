@@ -220,6 +220,41 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
             return null;
         }
     }
+
+    public Usuario buscarEmail(String email) {
+        Conexao conect = new Conexao();
+        con = conect.criaConexao();
+
+        if (con == null) {
+            System.out.println("Falha ao estabelecer conexão com o banco de dados.");
+            return null;
+        }
+
+        String query = "SELECT * FROM usuarios WHERE email = ?";
+
+        try (PreparedStatement stmt = con.prepareStatement(query)) {
+            stmt.setString(1, email);
+
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+               return new Usuario(
+                rs.getInt("id_user"),
+                rs.getString("nome"),
+                rs.getString("email"),
+                rs.getString("senha"),
+                rs.getString("tipo")
+                );
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+        System.out.println("Erro na query");
+        System.out.println("Erro: " + e.getMessage());
+        conect.fechaConexao();
+        return null;
+        }
     
     
+    }
 }

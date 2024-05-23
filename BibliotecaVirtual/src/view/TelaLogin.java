@@ -24,8 +24,8 @@ public class TelaLogin extends javax.swing.JFrame {
     private final AdminController admin;
     
     public TelaLogin() {
-        initComponents();
-        
+        initComponents();      
+    
         this.user = new UsuarioController();
         this.admin = new AdminController();
     }
@@ -80,8 +80,6 @@ public class TelaLogin extends javax.swing.JFrame {
         
         if(user.login(email, senha)){
             JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
-            TelaAluno tela = new TelaAluno();
-            tela.setVisible(true);
             dispose();
         }else if(admin.login(email, senha)){
             JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");

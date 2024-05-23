@@ -4,18 +4,27 @@
  */
 package view;
 
+import javax.swing.JLabel;
+import model.user.Usuario;
+
 /**
  *
  * @author isata
  */
 public class TelaAluno extends javax.swing.JFrame {
-
+    //private UsuarioController user;
     /**
      * Creates new form TelaAluno
+     * @param user
      */
+    public TelaAluno(Usuario user) {
+        initComponents();
+    }
+    
     public TelaAluno() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,6 +39,7 @@ public class TelaAluno extends javax.swing.JFrame {
         reservas = new javax.swing.JButton();
         disponivelBreve = new javax.swing.JButton();
         livrosDisponiveis = new javax.swing.JButton();
+        nomeJLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,6 +83,9 @@ public class TelaAluno extends javax.swing.JFrame {
             }
         });
         getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 160, 100));
+
+        nomeJLabel.setFont(new java.awt.Font("Calibri Light", 1, 24)); // NOI18N
+        getContentPane().add(nomeJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 300, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Tela Aluno (2).png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, -1));
@@ -136,11 +149,21 @@ public class TelaAluno extends javax.swing.JFrame {
         });
     }
 
+    public JLabel getNomeJLabel() {
+        return nomeJLabel;
+    }
+
+    public void setNomeJLabel(JLabel nomeJLabel) {
+        this.nomeJLabel = nomeJLabel;
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton configConta;
     private javax.swing.JButton disponivelBreve;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton livrosDisponiveis;
+    private javax.swing.JLabel nomeJLabel;
     private javax.swing.JButton reservas;
     // End of variables declaration//GEN-END:variables
 }
