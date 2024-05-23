@@ -16,20 +16,15 @@ import model.dao.UsuarioDAO;
  * @author tuany.bcristo
  */
 public class TelaLogin extends javax.swing.JFrame {
- 
-    private final TelaLoginController controller;
-    private final UsuarioDAO usuarioDAO;
-    private final AdminDAO adminDAO;
+    private Co
+
 
 
     /**
      * Creates new form TelaLogin
      */
     public TelaLogin() {
-        initComponents();
-        controller = new TelaLoginController(this);
-        usuarioDAO = new UsuarioDAO();
-        adminDAO = new AdminDAO();
+
     }
 
     /**
