@@ -8,6 +8,7 @@ public class Usuario extends Pessoa {
     private ArrayList<Livro> listaLivros;
 
     public Usuario() {
+        this.nivelAcesso = "regular";
     }
 
     public Usuario(int idUsuario, String nome, String emailInstitucional, String senha, String nivelAcesso) {

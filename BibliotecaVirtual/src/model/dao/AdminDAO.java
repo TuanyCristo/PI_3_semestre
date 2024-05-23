@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import model.conexao.Conexao;
 import model.user.Admin;
+import org.mindrot.jbcrypt.BCrypt;
 
 
 public class AdminDAO implements InterfaceDAO<Admin, Integer>{
@@ -29,12 +30,10 @@ public class AdminDAO implements InterfaceDAO<Admin, Integer>{
             stmt.setString(1, email);
             try(ResultSet rs = stmt.executeQuery()){
                 if(rs.next()){
-                    String tipo = rs.getString("tipo");
-                    if(tipo.equals("admin")){
-                        Admin a = retorna(rs);
-                        if(a.confirmaSenha(a.getSenha(), senha))
-                        return true;
-                    } else {
+                    String senhaHash = rs.getString("senha");
+                    
+                    boolean senhaVerificada = BCrypt.checkpw(senha, senhaHash);
+                    if(!senhaVerificada){
                         return false;
                     }
                 }

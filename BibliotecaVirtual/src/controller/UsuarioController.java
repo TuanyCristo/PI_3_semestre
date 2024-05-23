@@ -57,7 +57,7 @@ public class UsuarioController implements Controller<Usuario, Integer>{
     }
     
     public Usuario criarUsuario(String nome, String email, String senha, String comparaSenha) throws Exception{
-        if(nome != null && email != null && senha != null && comparaSenha != null){
+                     
             if(senha.equals(comparaSenha)){
                 Usuario u = new Usuario();
                 u.setNome(nome);
@@ -67,11 +67,42 @@ public class UsuarioController implements Controller<Usuario, Integer>{
             } else {
                 throw new Exception("Senha incorreta");
             }
-        } else {
-            return null;
-        }
+             
     }
     
+    public boolean validaEmail(String email){
+        return email.contains("@senacsp.edu.br");
+    }
+
+    public boolean verificaSenha(String senha, String confirmaSenha){
+        return senha.equals(confirmaSenha);
+    }
+    
+
+    public boolean validaSenha(String senhaDigitada){
+        if(senhaDigitada.length() == 8){
+            boolean maiuscula = false;
+            boolean minuscula = false;
+            boolean numero = false;
+            boolean simbolo = false;
+
+            for (int i = 0; i < senhaDigitada.length(); i++) {
+                char caractere = senhaDigitada.charAt(i);
+                if(Character.isUpperCase(caractere)){
+                    maiuscula = true;
+                } else if(Character.isLowerCase(caractere)){
+                    minuscula = true;
+                } else if(Character.isDigit(caractere)){
+                    numero = true;                       
+                } else {
+                    simbolo = true;
+                }     
+            }
+            return maiuscula && minuscula && numero && simbolo;
+        } else {
+            return false;
+        }
+    }
     
     
 }

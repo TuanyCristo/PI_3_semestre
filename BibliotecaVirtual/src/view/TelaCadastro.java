@@ -5,8 +5,6 @@
 package view;
 
 import controller.UsuarioController;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -111,14 +109,28 @@ public class TelaCadastro extends javax.swing.JFrame {
             String senhaTela = String.valueOf(senhac.getPassword());
             String confirmaSenha = String.valueOf(senhaco.getPassword());
             
-            if(user.adicionar(user.criarUsuario(nomeTela, emailTela, senhaTela, confirmaSenha))){
-                JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
-            }else{ 
-                JOptionPane.showMessageDialog(null, "Não foi possível realizar ");
+            if(nomeTela != null && emailTela != null && senhaTela != null && confirmaSenha != null)
+                if(user.validaEmail(emailTela)){
+                    if(user.verificaSenha(senhaTela, confirmaSenha)){
+                        if(user.validaSenha(senhaTela)){
+                            if(user.adicionar(user.criarUsuario(nomeTela, emailTela, senhaTela, confirmaSenha))){
+                                JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+                                dispose();
+                            }else{ 
+                                JOptionPane.showMessageDialog(null, "Não foi possível realizar ");
+                            }
+                        }else{
+                            JOptionPane.showMessageDialog(null, "A senha deve conter 8 digitos entre números, letras maiúsculas e minusculas e caracteres especiais");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "As senhas não conferem");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Favor fonecer um e-mail institucional do Senac");
+                } 
+        }catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Favor preencher todos os campos");
             }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Favor preencher todos os campos");
-        }
  
         
     

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import model.conexao.Conexao;
 import model.user.Usuario;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
     private Connection con;
@@ -25,15 +26,16 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
         String query = "SELECT * FROM usuarios WHERE  email = ?";
         
         try (PreparedStatement stmt = con.prepareStatement(query)) {
+            
             stmt.setString(1, email);
+            
             try(ResultSet rs = stmt.executeQuery()){
                 if(rs.next()){
-                    String tipo = rs.getString("tipo");
-                    if(tipo.equals("regular")){
-                        Usuario u = retorna(rs);
-                        if(u.confirmaSenha(u.getSenha(), senha))
-                        return true;
-                    } else {
+                    
+                    String senhaHash = rs.getString("senha");
+                    
+                    boolean senhaVerificada = BCrypt.checkpw(senha, senhaHash);
+                    if(!senhaVerificada){
                         return false;
                     }
                 }
@@ -45,7 +47,7 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
             System.out.println("Erro: " + e.getMessage());
         }
         conect.fechaConexao();
-        return false;
+        return true;
     }
     
     private Usuario retorna(ResultSet rs) throws SQLException {
@@ -73,7 +75,7 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
         
         try (PreparedStatement stmt = con.prepareStatement(query)) {
             stmt.setString(1, objeto.getNome());
-            stmt.setString(0, objeto.getEmailInstitucional());
+            stmt.setString(2, objeto.getEmailInstitucional());
             stmt.setString(3, objeto.getSenha());
             stmt.setString(4, objeto.getNivelAcesso());
             
