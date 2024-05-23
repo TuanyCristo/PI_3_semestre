@@ -41,6 +41,11 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         cancelar.setContentAreaFilled(false);
         cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarActionPerformed(evt);
+            }
+        });
         getContentPane().add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 90, 30));
         getContentPane().add(senhaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 270, -1));
 
@@ -90,6 +95,12 @@ public class TelaCadastro extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cadastrarActionPerformed
 
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        TelaLogin telaLogin = new TelaLogin();
+        telaLogin.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cancelarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -122,7 +133,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaCadastro telaCadastro = new TelaCadastro();
-                telaCadastro.setSize(400, 400);
+                telaCadastro.setSize(399, 400);
                 telaCadastro.setVisible(true);
             }
         });

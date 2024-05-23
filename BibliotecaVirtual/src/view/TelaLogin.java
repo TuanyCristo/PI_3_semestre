@@ -50,7 +50,7 @@ public class TelaLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        senha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        senha.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 senhaActionPerformed(evt);
@@ -83,7 +83,9 @@ public class TelaLogin extends javax.swing.JFrame {
         });
         getContentPane().add(entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 60, 30));
 
-        email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        email.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        email.setCaretColor(new java.awt.Color(204, 204, 204));
+        email.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailActionPerformed(evt);
@@ -92,7 +94,7 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 290, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Login (1).png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 400));
 
         pack();
         setLocationRelativeTo(null);
