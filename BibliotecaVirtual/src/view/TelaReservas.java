@@ -26,8 +26,10 @@ public class TelaReservas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         historico = new javax.swing.JButton();
-        disponiveisBreve = new javax.swing.JButton();
+        disponivelBreve = new javax.swing.JButton();
         livrosDisponiveis = new javax.swing.JButton();
         voltar = new javax.swing.JButton();
         reservas = new javax.swing.JButton();
@@ -36,6 +38,27 @@ public class TelaReservas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"", null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Minhas Reservas", "Livros Disponíveis", "Disponíveis em breve", "Meu histórico"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 540, 190));
 
         historico.setContentAreaFilled(false);
         historico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -46,9 +69,9 @@ public class TelaReservas extends javax.swing.JFrame {
         });
         getContentPane().add(historico, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, 150, 100));
 
-        disponiveisBreve.setContentAreaFilled(false);
-        disponiveisBreve.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(disponiveisBreve, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 160, 90));
+        disponivelBreve.setContentAreaFilled(false);
+        disponivelBreve.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(disponivelBreve, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 160, 100));
 
         livrosDisponiveis.setContentAreaFilled(false);
         livrosDisponiveis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -86,7 +109,7 @@ public class TelaReservas extends javax.swing.JFrame {
         });
         getContentPane().add(devolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Tela Aluno - tabela - reservas.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Tela Aluno - tabela - reservas (1).png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -110,6 +133,8 @@ public class TelaReservas extends javax.swing.JFrame {
     }//GEN-LAST:event_reservasActionPerformed
 
     private void livrosDisponiveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_livrosDisponiveisActionPerformed
+        TelaDisponiveis telaDisponiveis = new TelaDisponiveis();
+        telaDisponiveis.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_livrosDisponiveisActionPerformed
 
@@ -156,9 +181,11 @@ public class TelaReservas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton devolucao;
-    private javax.swing.JButton disponiveisBreve;
+    private javax.swing.JButton disponivelBreve;
     private javax.swing.JButton historico;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton livrosDisponiveis;
     private javax.swing.JButton reservas;
     private javax.swing.JButton voltar;
