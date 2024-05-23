@@ -4,27 +4,28 @@
  */
 package view;
 
-import controller.TelaLoginController;
+import controller.AdminController;
+import controller.UsuarioController;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import model.dao.AdminDAO;
-import model.dao.UsuarioDAO;
 
 /**
  *
  * @author tuany.bcristo
  */
-public class TelaLogin extends javax.swing.JFrame {
-    
+public class TelaLogin1 extends javax.swing.JFrame {
+    private final UsuarioController controller;
+    private final AdminController controllerAdmin;
 
 
 
     /**
      * Creates new form TelaLogin
      */
-    public TelaLogin() {
-
+    public TelaLogin1() {
+        this.controller = new UsuarioController();
+        this.controllerAdmin = new AdminController();
     }
 
     /**
@@ -107,24 +108,7 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroActionPerformed
 
     private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
-        //adicionando o valor do JTextField em uma variavel
-        String emailTexto = getEmail().getText().toLowerCase();
-        String senhaTexto = String.valueOf(senha.getPassword());
         
-        //validação
-        if()){
-            JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
-            TelaAluno tela = new TelaAluno();
-            tela.setVisible(true);
-            dispose();
-        } else if()) {
-            JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
-            TelaAdmin telaAdmin = new TelaAdmin();
-            telaAdmin.setVisible(true);
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuário ou senha incorreto");
-        }
         
     }//GEN-LAST:event_entrarActionPerformed
 
@@ -149,20 +133,21 @@ public class TelaLogin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaLogin1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                TelaLogin telaLogin = new TelaLogin();
+                TelaLogin1 telaLogin = new TelaLogin1();
                 telaLogin.setSize(400, 400);
                 telaLogin.setVisible(true);
             }
@@ -177,6 +162,22 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField senha;
     // End of variables declaration//GEN-END:variables
+
+    public JTextField getEmail() {
+        return email;
+    }
+
+    public void setEmail(JTextField email) {
+        this.email = email;
+    }
+
+    public JPasswordField getSenha() {
+        return senha;
+    }
+
+    public void setSenha(JPasswordField senha) {
+        this.senha = senha;
+    }
 
     
 }

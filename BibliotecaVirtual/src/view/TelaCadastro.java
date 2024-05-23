@@ -112,7 +112,7 @@ public class TelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastrarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-        TelaLogin telaLogin = new TelaLogin();
+        TelaLogin1 telaLogin = new TelaLogin1();
         telaLogin.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelarActionPerformed

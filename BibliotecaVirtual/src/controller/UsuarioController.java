@@ -4,17 +4,17 @@ import java.util.List;
 import java.util.Optional;
 import model.dao.UsuarioDAO;
 import model.user.Usuario;
-import view.TelaLogin;
+import view.TelaLogin1;
 
 public class UsuarioController implements Controller<Usuario, Integer>{
-    private TelaLogin view;
+    private TelaLogin1 view;
     private UsuarioDAO user;
     
     public UsuarioController(){
         this.user = new UsuarioDAO();
     }
 
-    public UsuarioController(TelaLogin view, UsuarioDAO user) {
+    public UsuarioController(TelaLogin1 view, UsuarioDAO user) {
         this.view = view;
         this.user = user;
     }
