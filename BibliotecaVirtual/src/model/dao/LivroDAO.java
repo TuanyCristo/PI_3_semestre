@@ -12,7 +12,7 @@ import model.conexao.Conexao;
 import model.livros.Livro;
 import model.user.Usuario;
 
-public class LivrosDAO implements InterfaceDAO<Livro, Integer>{
+public class LivroDAO implements InterfaceDAO<Livro, Integer>{
 
     private Connection con;
     
