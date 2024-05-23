@@ -31,8 +31,8 @@ public class TelaCadastro extends javax.swing.JFrame {
         cancelar = new javax.swing.JButton();
         cadastrar = new javax.swing.JButton();
         emailc = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        senhac = new javax.swing.JPasswordField();
+        senhaco = new javax.swing.JPasswordField();
         nome = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
@@ -67,11 +67,11 @@ public class TelaCadastro extends javax.swing.JFrame {
         });
         getContentPane().add(emailc, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 270, 20));
 
-        jPasswordField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 270, -1));
+        senhac.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(senhac, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 270, -1));
 
-        jPasswordField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 270, -1));
+        senhaco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(senhaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 270, -1));
 
         nome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         nome.addActionListener(new java.awt.event.ActionListener() {
@@ -182,8 +182,8 @@ public class TelaCadastro extends javax.swing.JFrame {
     private javax.swing.JButton cancelar;
     private javax.swing.JTextField emailc;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JTextField nome;
+    private javax.swing.JPasswordField senhac;
+    private javax.swing.JPasswordField senhaco;
     // End of variables declaration//GEN-END:variables
 }
