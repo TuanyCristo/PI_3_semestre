@@ -4,17 +4,18 @@ import java.util.List;
 import java.util.Optional;
 import model.dao.AdminDAO;
 import model.user.Admin;
-import view.TelaLogin1;
+import view.TelaLogin;
+
 
 public class AdminController implements Controller<Admin, Integer>{
-    private TelaLogin1 view;
+    private TelaLogin view;
     private AdminDAO user;
 
     public AdminController() {
         this.user = new AdminDAO();
     }
     
-    public AdminController(TelaLogin1 view, AdminDAO user) {
+    public AdminController(TelaLogin view, AdminDAO user) {
         this.view = view;
         this.user = new AdminDAO();
     }
