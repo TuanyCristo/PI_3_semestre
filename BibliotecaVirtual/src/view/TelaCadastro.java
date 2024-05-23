@@ -47,7 +47,14 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 90, 30));
-        getContentPane().add(senhaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 270, -1));
+
+        senhaco.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        senhaco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhacoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(senhaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 270, 20));
 
         cadastrar.setBackground(new java.awt.Color(255, 153, 0));
         cadastrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -60,20 +67,29 @@ public class TelaCadastro extends javax.swing.JFrame {
         });
         getContentPane().add(cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 90, 30));
 
+        emailc.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         emailc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailcActionPerformed(evt);
             }
         });
-        getContentPane().add(emailc, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 270, -1));
-        getContentPane().add(senhac, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 270, -1));
+        getContentPane().add(emailc, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 270, 20));
 
+        senhac.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        senhac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhacActionPerformed(evt);
+            }
+        });
+        getContentPane().add(senhac, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 270, 20));
+
+        nome.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeActionPerformed(evt);
             }
         });
-        getContentPane().add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 270, 20));
+        getContentPane().add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 270, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cadastro (2).png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -100,6 +116,14 @@ public class TelaCadastro extends javax.swing.JFrame {
         telaLogin.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelarActionPerformed
+
+    private void senhacoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhacoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhacoActionPerformed
+
+    private void senhacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhacActionPerformed
 
     /**
      * @param args the command line arguments
