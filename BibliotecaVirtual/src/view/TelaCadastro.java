@@ -4,6 +4,10 @@
  */
 package view;
 
+import controller.UsuarioController;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -12,12 +16,14 @@ import javax.swing.JTextField;
  * @author steph
  */
 public class TelaCadastro extends javax.swing.JFrame {
+    private final UsuarioController user;
 
     /**
      * Creates new form Cadastro
      */
     public TelaCadastro() {
         initComponents();
+        this.user = new UsuarioController();
     }
 
     /**
@@ -99,7 +105,23 @@ public class TelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_emailcActionPerformed
 
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
+        try {
+            String nomeTela = getNome().getText();
+            String emailTela = getEmailc().getText().toLowerCase();
+            String senhaTela = String.valueOf(senhac.getPassword());
+            String confirmaSenha = String.valueOf(senhaco.getPassword());
+            
+            if(user.adicionar(user.criarUsuario(nomeTela, emailTela, senhaTela, confirmaSenha))){
+                JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+            }else{ 
+                JOptionPane.showMessageDialog(null, "Não foi possível realizar ");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Favor preencher todos os campos");
+        }
+ 
         
+    
     }//GEN-LAST:event_cadastrarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed

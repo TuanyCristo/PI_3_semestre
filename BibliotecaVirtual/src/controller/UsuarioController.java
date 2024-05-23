@@ -4,18 +4,21 @@ import java.util.List;
 import java.util.Optional;
 import model.dao.UsuarioDAO;
 import model.user.Usuario;
+import view.TelaAdmin;
 import view.TelaLogin;
 
 public class UsuarioController implements Controller<Usuario, Integer>{
     private TelaLogin view;
+    private TelaAdmin viewAdmin;
     private UsuarioDAO user;
     
     public UsuarioController(){
         this.user = new UsuarioDAO();
     }
 
-    public UsuarioController(TelaLogin view, UsuarioDAO user) {
+    public UsuarioController(TelaLogin view, TelaAdmin viewAdmin, UsuarioDAO user) {
         this.view = view;
+        this.viewAdmin = viewAdmin;
         this.user = user;
     }
 
@@ -51,6 +54,22 @@ public class UsuarioController implements Controller<Usuario, Integer>{
     @Override
     public void atualizaView(){
         
+    }
+    
+    public Usuario criarUsuario(String nome, String email, String senha, String comparaSenha) throws Exception{
+        if(nome != null && email != null && senha != null && comparaSenha != null){
+            if(senha.equals(comparaSenha)){
+                Usuario u = new Usuario();
+                u.setNome(nome);
+                u.setEmailInstitucional(email);
+                u.setSenha(senha);
+                return u;
+            } else {
+                throw new Exception("Senha incorreta");
+            }
+        } else {
+            return null;
+        }
     }
     
     
