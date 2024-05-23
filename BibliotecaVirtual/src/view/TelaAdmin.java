@@ -26,25 +26,73 @@ public class TelaAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        livro = new javax.swing.JButton();
+        cadastrar = new javax.swing.JButton();
+        excluir = new javax.swing.JButton();
+        aterarinfo = new javax.swing.JButton();
+        usuario = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Teste de label");
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Título", "Autor", "Quantidade"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, 210));
+
+        livro.setContentAreaFilled(false);
+        livro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        livro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                livroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(livro, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 150, 90));
+
+        cadastrar.setContentAreaFilled(false);
+        cadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 140, 40));
+
+        excluir.setContentAreaFilled(false);
+        excluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 410, 160, 40));
+
+        aterarinfo.setContentAreaFilled(false);
+        aterarinfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(aterarinfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 460, 160, 40));
+
+        usuario.setContentAreaFilled(false);
+        usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 150, 90));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Tela Admin.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void livroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_livroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_livroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -82,6 +130,13 @@ public class TelaAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton aterarinfo;
+    private javax.swing.JButton cadastrar;
+    private javax.swing.JButton excluir;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JButton livro;
+    private javax.swing.JButton usuario;
     // End of variables declaration//GEN-END:variables
 }
