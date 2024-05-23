@@ -26,9 +26,9 @@ public class TelaReservas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        configConta = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        historico = new javax.swing.JButton();
         disponivelBreve = new javax.swing.JButton();
         livrosDisponiveis = new javax.swing.JButton();
         voltar = new javax.swing.JButton();
@@ -38,6 +38,10 @@ public class TelaReservas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        configConta.setContentAreaFilled(false);
+        configConta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(configConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 190, 20));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -66,16 +70,7 @@ public class TelaReservas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 540, 190));
-
-        historico.setContentAreaFilled(false);
-        historico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        historico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                historicoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(historico, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, 150, 100));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 510, 190));
 
         disponivelBreve.setContentAreaFilled(false);
         disponivelBreve.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -84,7 +79,7 @@ public class TelaReservas extends javax.swing.JFrame {
                 disponivelBreveActionPerformed(evt);
             }
         });
-        getContentPane().add(disponivelBreve, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 160, 100));
+        getContentPane().add(disponivelBreve, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 160, 100));
 
         livrosDisponiveis.setContentAreaFilled(false);
         livrosDisponiveis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -93,7 +88,7 @@ public class TelaReservas extends javax.swing.JFrame {
                 livrosDisponiveisActionPerformed(evt);
             }
         });
-        getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 263, 150, 90));
+        getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 150, 90));
 
         voltar.setContentAreaFilled(false);
         voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -102,7 +97,7 @@ public class TelaReservas extends javax.swing.JFrame {
                 voltarActionPerformed(evt);
             }
         });
-        getContentPane().add(voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, 150, 40));
+        getContentPane().add(voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 620, 150, 40));
 
         reservas.setContentAreaFilled(false);
         reservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -111,7 +106,7 @@ public class TelaReservas extends javax.swing.JFrame {
                 reservasActionPerformed(evt);
             }
         });
-        getContentPane().add(reservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 160, 100));
+        getContentPane().add(reservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 160, 100));
 
         devolucao.setContentAreaFilled(false);
         devolucao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -120,7 +115,7 @@ public class TelaReservas extends javax.swing.JFrame {
                 devolucaoActionPerformed(evt);
             }
         });
-        getContentPane().add(devolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 40));
+        getContentPane().add(devolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 560, 150, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Tela Aluno - tabela - reservas.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -150,10 +145,6 @@ public class TelaReservas extends javax.swing.JFrame {
         telaDisponiveis.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_livrosDisponiveisActionPerformed
-
-    private void historicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historicoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_historicoActionPerformed
 
     private void disponivelBreveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disponivelBreveActionPerformed
         TelaDisponiveisBreve telaDisponiveisBreve = new TelaDisponiveisBreve();
@@ -199,9 +190,9 @@ public class TelaReservas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton configConta;
     private javax.swing.JButton devolucao;
     private javax.swing.JButton disponivelBreve;
-    private javax.swing.JButton historico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
