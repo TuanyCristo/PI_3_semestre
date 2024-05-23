@@ -79,6 +79,11 @@ public class TelaReservas extends javax.swing.JFrame {
 
         disponivelBreve.setContentAreaFilled(false);
         disponivelBreve.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        disponivelBreve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                disponivelBreveActionPerformed(evt);
+            }
+        });
         getContentPane().add(disponivelBreve, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 160, 100));
 
         livrosDisponiveis.setContentAreaFilled(false);
@@ -149,6 +154,12 @@ public class TelaReservas extends javax.swing.JFrame {
     private void historicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historicoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_historicoActionPerformed
+
+    private void disponivelBreveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disponivelBreveActionPerformed
+        TelaDisponiveisBreve telaDisponiveisBreve = new TelaDisponiveisBreve();
+        telaDisponiveisBreve.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_disponivelBreveActionPerformed
 
     /**
      * @param args the command line arguments

@@ -107,6 +107,8 @@ public class TelaAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_livrosDisponiveisActionPerformed
 
     private void disponivelBreveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disponivelBreveActionPerformed
+        TelaDisponiveisBreve telaDisponiveisBreve = new TelaDisponiveisBreve();
+        telaDisponiveisBreve.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_disponivelBreveActionPerformed
 
