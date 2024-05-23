@@ -28,8 +28,9 @@ public class TelaCadastro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cancelar = new javax.swing.JButton();
         senhaco = new javax.swing.JTextField();
-        enterc = new javax.swing.JButton();
+        cadastrar = new javax.swing.JButton();
         emailc = new javax.swing.JTextField();
         senhac = new javax.swing.JTextField();
         nome = new javax.swing.JTextField();
@@ -37,17 +38,22 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cancelar.setContentAreaFilled(false);
+        cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 90, 30));
         getContentPane().add(senhaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 270, -1));
 
-        enterc.setBackground(new java.awt.Color(255, 153, 0));
-        enterc.setForeground(new java.awt.Color(255, 255, 255));
-        enterc.setText("Cadastrar");
-        enterc.addActionListener(new java.awt.event.ActionListener() {
+        cadastrar.setBackground(new java.awt.Color(255, 153, 0));
+        cadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        cadastrar.setContentAreaFilled(false);
+        cadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entercActionPerformed(evt);
+                cadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(enterc, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, -1, -1));
+        getContentPane().add(cadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 90, 30));
 
         emailc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,7 +70,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         });
         getContentPane().add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 270, 20));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cadastro (1).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cadastro (2).png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 402, -1));
 
@@ -80,9 +86,9 @@ public class TelaCadastro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailcActionPerformed
 
-    private void entercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entercActionPerformed
+    private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
         
-    }//GEN-LAST:event_entercActionPerformed
+    }//GEN-LAST:event_cadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,7 +121,9 @@ public class TelaCadastro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastro().setVisible(true);
+                TelaCadastro telaCadastro = new TelaCadastro();
+                telaCadastro.setSize(400, 400);
+                telaCadastro.setVisible(true);
             }
         });
     }
@@ -153,8 +161,9 @@ public class TelaCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cadastrar;
+    private javax.swing.JButton cancelar;
     private javax.swing.JTextField emailc;
-    private javax.swing.JButton enterc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField nome;
     private javax.swing.JTextField senhac;
