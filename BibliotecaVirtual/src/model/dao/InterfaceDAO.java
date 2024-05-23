@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface InterfaceDAO<T, ID> {
     public boolean inserirItem(T objeto);
-    public boolean alterarItem(T objeto);
+    public boolean alterarItem(int id, T objeto);
     public List<T> listarItens();
     public boolean deletarItem(ID id);
     public Optional<T> buscarId(ID id);
