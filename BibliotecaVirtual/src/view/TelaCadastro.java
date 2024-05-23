@@ -4,6 +4,7 @@
  */
 package view;
 
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -102,7 +103,7 @@ public class TelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastrarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-        TelaLogin1 telaLogin = new TelaLogin1();
+        TelaLogin telaLogin = new TelaLogin();
         telaLogin.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelarActionPerformed
@@ -161,21 +162,23 @@ public class TelaCadastro extends javax.swing.JFrame {
         this.nome = nome;
     }
 
-    public JTextField getSenhac() {
+    public JPasswordField getSenhac() {
         return senhac;
     }
 
-    public void setSenhac(JTextField senhac) {
+    public void setSenhac(JPasswordField senhac) {
         this.senhac = senhac;
     }
 
-    public JTextField getSenhaco() {
+    public JPasswordField getSenhaco() {
         return senhaco;
     }
 
-    public void setSenhaco(JTextField senhaco) {
+    public void setSenhaco(JPasswordField senhaco) {
         this.senhaco = senhaco;
     }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrar;
