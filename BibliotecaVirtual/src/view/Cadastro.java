@@ -34,40 +34,35 @@ public class Cadastro extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
-        getContentPane().add(senhaco);
-        senhaco.setBounds(90, 270, 270, 22);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(senhaco, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 270, -1));
 
         enterc.setBackground(new java.awt.Color(255, 153, 0));
         enterc.setForeground(new java.awt.Color(255, 255, 255));
         enterc.setText("Enter");
-        getContentPane().add(enterc);
-        enterc.setBounds(170, 340, 72, 23);
+        getContentPane().add(enterc, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, -1, -1));
 
         emailc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailcActionPerformed(evt);
             }
         });
-        getContentPane().add(emailc);
-        emailc.setBounds(90, 200, 270, 22);
-        getContentPane().add(senhac);
-        senhac.setBounds(90, 230, 270, 22);
+        getContentPane().add(emailc, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 270, -1));
+        getContentPane().add(senhac, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 270, -1));
 
         nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeActionPerformed(evt);
             }
         });
-        getContentPane().add(nome);
-        nome.setBounds(90, 160, 270, 20);
+        getContentPane().add(nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 270, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Cadastro (1).png"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 402, 400);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 402, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
