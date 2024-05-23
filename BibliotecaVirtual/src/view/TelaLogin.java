@@ -16,7 +16,7 @@ import model.dao.UsuarioDAO;
  * @author tuany.bcristo
  */
 public class TelaLogin extends javax.swing.JFrame {
-    private Co
+    
 
 
 
@@ -112,12 +112,12 @@ public class TelaLogin extends javax.swing.JFrame {
         String senhaTexto = String.valueOf(senha.getPassword());
         
         //validação
-        if(usuarioDAO.loginEmail(emailTexto, senhaTexto)){
+        if()){
             JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
             TelaAluno tela = new TelaAluno();
             tela.setVisible(true);
             dispose();
-        } else if(adminDAO.loginEmail(emailTexto, senhaTexto)) {
+        } else if()) {
             JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
             TelaAdmin telaAdmin = new TelaAdmin();
             telaAdmin.setVisible(true);
@@ -178,24 +178,5 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JPasswordField senha;
     // End of variables declaration//GEN-END:variables
 
-    public void exibeMensagem(String mensagem) {
-        JOptionPane.showMessageDialog(null, mensagem);
-    }
-
-    public JTextField getEmail() {
-        return email;
-    }
-
-    public void setEmail(JTextField email) {
-        this.email = email;
-    }
-
-    public JPasswordField getSenha() {
-        return senha;
-    }
-
-    public void setSenha(JPasswordField senha) {
-        this.senha = senha;
-    }
     
 }
