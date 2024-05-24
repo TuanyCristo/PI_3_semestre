@@ -5,11 +5,14 @@
 package view;
 
 import controller.LivroController;
-import controller.UsuarioController;
+import controller.ReservaController;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.livros.Livro;
+import model.user.Usuario;
 
 /**
  *
@@ -18,12 +21,23 @@ import model.livros.Livro;
 public class TelaDisponiveis extends javax.swing.JFrame {
 
     private LivroController controller;
+    private Usuario usuario;
+    private ReservaController  conReserva;
     /**
      * Creates new form TelaDisponiveis
      */
     public TelaDisponiveis() {
         initComponents();
         this.controller = new LivroController();
+        carregaTabela();
+    }
+    
+        public TelaDisponiveis(Usuario user) {
+        initComponents();
+        this.controller = new LivroController();
+        this.usuario = user;
+        this.conReserva = new ReservaController();
+        nomeJLabel.setText(user.getNome());
         carregaTabela();
     }
 
@@ -37,7 +51,7 @@ public class TelaDisponiveis extends javax.swing.JFrame {
     private void initComponents() {
 
         voltar = new javax.swing.JButton();
-        reservasLivros = new javax.swing.JButton();
+        reservarLivros = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaLivros = new javax.swing.JTable();
         livrosDisponiveis = new javax.swing.JButton();
@@ -59,14 +73,14 @@ public class TelaDisponiveis extends javax.swing.JFrame {
         });
         getContentPane().add(voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 473, 150, 40));
 
-        reservasLivros.setContentAreaFilled(false);
-        reservasLivros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        reservasLivros.addActionListener(new java.awt.event.ActionListener() {
+        reservarLivros.setContentAreaFilled(false);
+        reservarLivros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        reservarLivros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reservasLivrosActionPerformed(evt);
+                reservarLivrosActionPerformed(evt);
             }
         });
-        getContentPane().add(reservasLivros, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 40));
+        getContentPane().add(reservarLivros, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 40));
 
         tabelaLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,7 +109,7 @@ public class TelaDisponiveis extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaLivros);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 560, 290));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 600, 290));
 
         livrosDisponiveis.setContentAreaFilled(false);
         livrosDisponiveis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -160,9 +174,31 @@ public class TelaDisponiveis extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_livrosDisponiveisActionPerformed
 
-    private void reservasLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservasLivrosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_reservasLivrosActionPerformed
+    private void reservarLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarLivrosActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tabelaLivros.getModel();
+        int numRows = model.getRowCount();
+        List<Integer> livrosSelecionados = new ArrayList<>();
+
+        for (int i = 0; i < numRows; i++) {
+            Boolean verCheckbox = (Boolean) model.getValueAt(i, 0);
+
+            if (verCheckbox) {
+                
+                Integer idLivro = (Integer) model.getValueAt(i, 1);
+                livrosSelecionados.add(idLivro);
+            }
+        }
+
+        // Faz a reserva dos livros selecionados
+        boolean reservaFeita = conReserva.fazerReserva(usuario.getIdUsuario(), livrosSelecionados);
+
+        if (reservaFeita) {
+            JOptionPane.showMessageDialog(this, "Reserva dos livros selecionados feita com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao fazer reserva dos livros selecionados.");
+        }
+
+    }//GEN-LAST:event_reservarLivrosActionPerformed
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         TelaAluno telaAluno = new TelaAluno();
@@ -221,43 +257,7 @@ public JLabel getNomeJLabel() {
     }
     
     private void carregaTabela(){
-        List<Livro> livros = controller.listar();
-
-
-        // Definir as colunas da tabela
-        String[] colunas = {"#", "Título", "Autor", "Quantidade Disponível"};
-
-        // Criar o modelo da tabela com as colunas definidas
-        DefaultTableModel modeloTabela = new DefaultTableModel(colunas, 0) {
-            @Override
-            public Class<?> getColumnClass(int columnIndex) {
-                if (columnIndex == 0) {
-                    return Boolean.class;
-                }
-                return String.class;
-            }
-
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return column == 0; // Permitir edição apenas na coluna de checkbox
-            }
-        };
-
-        // Percorrer a lista de livros e adicionar cada livro ao modelo da tabela
-        for (Livro livro : livros) {
-            Object[] linha = new Object[4];
-            linha[0] = false; // Inicialmente, o checkbox está desmarcado
-            linha[1] = livro.getTitulo();
-            linha[2] = livro.getAutor();
-            linha[3] = livro.getQntExemplares();
-            modeloTabela.addRow(linha);
-        }
-
-        // Atribuir o modelo de tabela atualizado à tabelaLivros
-        tabelaLivros.setModel(modeloTabela);
-
-        // Definir largura da coluna de checkbox
-        tabelaLivros.getColumnModel().getColumn(0).setMaxWidth(50);
+        controller.carregaLirosDisponiveis(tabelaLivros);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton configConta;
@@ -265,8 +265,8 @@ public JLabel getNomeJLabel() {
     private javax.swing.JLabel jlabel;
     private javax.swing.JButton livrosDisponiveis;
     private javax.swing.JLabel nomeJLabel;
+    private javax.swing.JButton reservarLivros;
     private javax.swing.JButton reservas;
-    private javax.swing.JButton reservasLivros;
     private javax.swing.JButton sair;
     private javax.swing.JTable tabelaLivros;
     private javax.swing.JButton voltar;

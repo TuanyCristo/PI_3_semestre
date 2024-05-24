@@ -7,7 +7,7 @@ import model.user.Usuario;
 import view.TelaAluno;
 import view.TelaLogin;
 
-public class UsuarioController implements Controller<Usuario, Integer>{
+public class UsuarioController{
     private TelaLogin view;
     private UsuarioDAO user;
     private TelaAluno telaAluno;
@@ -16,28 +16,23 @@ public class UsuarioController implements Controller<Usuario, Integer>{
         this.user = new UsuarioDAO();
     }
 
-    @Override
     public boolean adicionar(Usuario objeto) {
         
         return user.inserirItem(objeto);
     }
 
-    @Override
     public boolean alterar(int id, Usuario objeto) {
         return user.alterarItem(id, objeto);
     }
 
-    @Override
     public List<Usuario> listar() {
         return user.listarItens();
     }
 
-    @Override
     public boolean deletar(Integer id) {
         return user.deletarItem(id);
     }
 
-    @Override
     public Optional<Usuario> buscarId(Integer id) {
         return user.buscarId(id);
     }
@@ -59,7 +54,6 @@ public class UsuarioController implements Controller<Usuario, Integer>{
     }
       
     
-    @Override
     public void atualizaView(String email){
             Usuario u = buscarEmail(email);
             telaAluno = new TelaAluno(u);
