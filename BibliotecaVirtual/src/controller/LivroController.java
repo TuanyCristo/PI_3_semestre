@@ -40,7 +40,7 @@ public class LivroController implements Controller<Livro, Integer>{
     }
 
     @Override
-    public void atualizaView() {
+    public void atualizaView(String email) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

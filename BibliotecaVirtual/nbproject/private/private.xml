@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/tcris/OneDrive/Área%20de%20Trabalho/PI_3_semestre/BibliotecaVirtual/src/view/TelaAluno.java</file>
-            <file>file:/C:/Users/tcris/OneDrive/Área%20de%20Trabalho/PI_3_semestre/BibliotecaVirtual/src/controller/UsuarioController.java</file>
-            <file>file:/C:/Users/tcris/OneDrive/Área%20de%20Trabalho/PI_3_semestre/BibliotecaVirtual/src/model/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/tcris/Desktop/PI_3_semestre/BibliotecaVirtual/src/controller/LivroController.java</file>
+            <file>file:/C:/Users/tcris/Desktop/PI_3_semestre/BibliotecaVirtual/src/model/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/tcris/Desktop/PI_3_semestre/BibliotecaVirtual/src/view/TelaDisponiveis.java</file>
+            <file>file:/C:/Users/tcris/Desktop/PI_3_semestre/BibliotecaVirtual/src/model/dao/LivroDAO.java</file>
+            <file>file:/C:/Users/tcris/Desktop/PI_3_semestre/BibliotecaVirtual/src/model/dao/InterfaceDAO.java</file>
+            <file>file:/C:/Users/tcris/Desktop/PI_3_semestre/BibliotecaVirtual/src/model/livros/Livro.java</file>
+            <file>file:/C:/Users/tcris/Desktop/PI_3_semestre/BibliotecaVirtual/src/view/TelaAluno.java</file>
         </group>
     </open-files>
 </project-private>

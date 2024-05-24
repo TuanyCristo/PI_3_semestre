@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 import model.conexao.Conexao;
 import model.livros.Livro;
-import model.user.Usuario;
 
 public class LivroDAO implements InterfaceDAO<Livro, Integer>{
 

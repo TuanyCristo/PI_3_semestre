@@ -82,6 +82,7 @@ public class TelaAluno extends javax.swing.JFrame {
         sair.setBackground(new java.awt.Color(255, 204, 153));
         sair.setForeground(new java.awt.Color(255, 255, 255));
         sair.setText("Sair");
+        sair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sairActionPerformed(evt);
@@ -122,8 +123,10 @@ public class TelaAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_configContaActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
+        dispose();
         TelaLogin telaLogin = new TelaLogin();
         telaLogin.setVisible(true);
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_sairActionPerformed
 

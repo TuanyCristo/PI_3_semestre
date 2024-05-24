@@ -47,29 +47,23 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="50" y="420" width="510" height="190"/>
+          <AbsoluteConstraints x="50" y="370" width="510" height="240"/>
         </Constraint>
       </Constraints>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable1">
+        <Component class="javax.swing.JTable" name="tabelaReserva">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="10">
-                <Column editable="true" title="Minhas Reservas" type="java.lang.String"/>
-                <Column editable="true" title="Livros Dispon&#xed;veis" type="java.lang.String"/>
-                <Column editable="true" title="Dispon&#xed;veis em breve" type="java.lang.String"/>
-                <Column editable="true" title="Meu hist&#xf3;rico" type="java.lang.String"/>
+              <Table columnCount="3" rowCount="10">
+                <Column editable="true" title="" type="java.lang.String"/>
+                <Column editable="true" title="Data de reserva" type="java.lang.String"/>
+                <Column editable="true" title="Data de devolu&#xe7;&#xe3;o" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>

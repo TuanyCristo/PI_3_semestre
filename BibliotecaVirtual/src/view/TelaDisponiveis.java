@@ -4,7 +4,12 @@
  */
 package view;
 
+import controller.LivroController;
+import controller.UsuarioController;
+import java.util.List;
 import javax.swing.JLabel;
+import javax.swing.table.DefaultTableModel;
+import model.livros.Livro;
 
 /**
  *
@@ -12,11 +17,14 @@ import javax.swing.JLabel;
  */
 public class TelaDisponiveis extends javax.swing.JFrame {
 
+    private LivroController controller;
     /**
      * Creates new form TelaDisponiveis
      */
     public TelaDisponiveis() {
         initComponents();
+        this.controller = new LivroController();
+        carregaTabela();
     }
 
     /**
@@ -31,7 +39,7 @@ public class TelaDisponiveis extends javax.swing.JFrame {
         voltar = new javax.swing.JButton();
         reservasLivros = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table = new javax.swing.JTable();
+        tabelaLivros = new javax.swing.JTable();
         livrosDisponiveis = new javax.swing.JButton();
         reservas = new javax.swing.JButton();
         nomeJLabel = new javax.swing.JLabel();
@@ -60,7 +68,7 @@ public class TelaDisponiveis extends javax.swing.JFrame {
         });
         getContentPane().add(reservasLivros, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 40));
 
-        table.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -74,7 +82,7 @@ public class TelaDisponiveis extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Título", "Autor", "Quantidade de exemplares"
+                "Título", "Autor", "Exemplares disponíveis"
             }
         ) {
             Class[] types = new Class [] {
@@ -85,9 +93,9 @@ public class TelaDisponiveis extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(table);
+        jScrollPane1.setViewportView(tabelaLivros);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, 190));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 560, 290));
 
         livrosDisponiveis.setContentAreaFilled(false);
         livrosDisponiveis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -211,6 +219,46 @@ public JLabel getNomeJLabel() {
     public void setNomeJLabel(JLabel nomeJLabel) {
         this.nomeJLabel = nomeJLabel;
     }
+    
+    private void carregaTabela(){
+        List<Livro> livros = controller.listar();
+
+
+        // Definir as colunas da tabela
+        String[] colunas = {"#", "Título", "Autor", "Quantidade Disponível"};
+
+        // Criar o modelo da tabela com as colunas definidas
+        DefaultTableModel modeloTabela = new DefaultTableModel(colunas, 0) {
+            @Override
+            public Class<?> getColumnClass(int columnIndex) {
+                if (columnIndex == 0) {
+                    return Boolean.class;
+                }
+                return String.class;
+            }
+
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column == 0; // Permitir edição apenas na coluna de checkbox
+            }
+        };
+
+        // Percorrer a lista de livros e adicionar cada livro ao modelo da tabela
+        for (Livro livro : livros) {
+            Object[] linha = new Object[4];
+            linha[0] = false; // Inicialmente, o checkbox está desmarcado
+            linha[1] = livro.getTitulo();
+            linha[2] = livro.getAutor();
+            linha[3] = livro.getQntExemplares();
+            modeloTabela.addRow(linha);
+        }
+
+        // Atribuir o modelo de tabela atualizado à tabelaLivros
+        tabelaLivros.setModel(modeloTabela);
+
+        // Definir largura da coluna de checkbox
+        tabelaLivros.getColumnModel().getColumn(0).setMaxWidth(50);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton configConta;
     private javax.swing.JScrollPane jScrollPane1;
@@ -220,7 +268,7 @@ public JLabel getNomeJLabel() {
     private javax.swing.JButton reservas;
     private javax.swing.JButton reservasLivros;
     private javax.swing.JButton sair;
-    private javax.swing.JTable table;
+    private javax.swing.JTable tabelaLivros;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

@@ -60,8 +60,13 @@ public class UsuarioController implements Controller<Usuario, Integer>{
       
     
     @Override
-    public void atualizaView(){
-        
+    public void atualizaView(String email){
+            Usuario u = buscarEmail(email);
+            telaAluno = new TelaAluno(u);
+            telaAluno.setVisible(true);
+            telaAluno.getNomeJLabel().setText(u.getNome());
+              
+         
     }
     
     public Usuario criarUsuario(String nome, String email, String senha, String comparaSenha){

@@ -9,5 +9,5 @@ public interface Controller<T, ID> {
     public List<T> listar();
     public boolean deletar(ID id);
     public Optional<T> buscarId(ID id);
-    public void atualizaView();
+    public void atualizaView(String email);
 }

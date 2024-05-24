@@ -130,6 +130,7 @@ public class TelaConfigConta extends javax.swing.JFrame {
             novo.setSenha(usuario.getSenha());
             if(controller.alterar(usuario.getIdUsuario(), novo)){
                 JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+                controller.atualizaView(novo.getEmailInstitucional());
             } else {
                 JOptionPane.showMessageDialog(null, "Não foi possível efetuar alteração");
             }
@@ -137,6 +138,7 @@ public class TelaConfigConta extends javax.swing.JFrame {
             if(controller.validaSenha(senha2)){
                 if(controller.alterar(usuario.getIdUsuario(), novo)){
                     JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+                    controller.atualizaView(novo.getEmailInstitucional());
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "A senha deve conter 8 dígitos entre números, letras maíusculas e minusculas e pelo menos um caractere especial.");
@@ -144,6 +146,8 @@ public class TelaConfigConta extends javax.swing.JFrame {
         } else {
                 JOptionPane.showMessageDialog(null, "A senha atual está incorreta");
         }
+        
+        dispose();
 
     }//GEN-LAST:event_alterarActionPerformed
 
