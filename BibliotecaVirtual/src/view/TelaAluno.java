@@ -38,7 +38,6 @@ public class TelaAluno extends javax.swing.JFrame {
 
         configConta = new javax.swing.JButton();
         reservas = new javax.swing.JButton();
-        disponivelBreve = new javax.swing.JButton();
         livrosDisponiveis = new javax.swing.JButton();
         nomeJLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -65,19 +64,7 @@ public class TelaAluno extends javax.swing.JFrame {
                 reservasActionPerformed(evt);
             }
         });
-        getContentPane().add(reservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 160, 100));
-
-        disponivelBreve.setBackground(new java.awt.Color(51, 75, 210));
-        disponivelBreve.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        disponivelBreve.setForeground(new java.awt.Color(255, 255, 255));
-        disponivelBreve.setContentAreaFilled(false);
-        disponivelBreve.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        disponivelBreve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                disponivelBreveActionPerformed(evt);
-            }
-        });
-        getContentPane().add(disponivelBreve, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 160, 100));
+        getContentPane().add(reservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 160, 100));
 
         livrosDisponiveis.setBackground(new java.awt.Color(255, 153, 51));
         livrosDisponiveis.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -89,12 +76,12 @@ public class TelaAluno extends javax.swing.JFrame {
                 livrosDisponiveisActionPerformed(evt);
             }
         });
-        getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 160, 100));
+        getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 160, 100));
 
         nomeJLabel.setFont(new java.awt.Font("Calibri Light", 1, 24)); // NOI18N
         getContentPane().add(nomeJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 300, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Tela Aluno (2).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Tela Aluno.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, -1));
 
         pack();
@@ -112,13 +99,6 @@ public class TelaAluno extends javax.swing.JFrame {
         telaDisponiveis.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_livrosDisponiveisActionPerformed
-
-    private void disponivelBreveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disponivelBreveActionPerformed
-        TelaDisponiveisBreve telaDisponiveisBreve = new TelaDisponiveisBreve();
-        
-        telaDisponiveisBreve.setVisible(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_disponivelBreveActionPerformed
 
     private void configContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configContaActionPerformed
         if(usuario != null){
@@ -177,7 +157,6 @@ public class TelaAluno extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton configConta;
-    private javax.swing.JButton disponivelBreve;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton livrosDisponiveis;
     private javax.swing.JLabel nomeJLabel;
