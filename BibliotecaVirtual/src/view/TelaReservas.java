@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author isata
@@ -29,8 +31,8 @@ public class TelaReservas extends javax.swing.JFrame {
         configConta = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        disponivelBreve = new javax.swing.JButton();
         livrosDisponiveis = new javax.swing.JButton();
+        nomeJLabel = new javax.swing.JLabel();
         voltar = new javax.swing.JButton();
         reservas = new javax.swing.JButton();
         devolucao = new javax.swing.JButton();
@@ -72,15 +74,6 @@ public class TelaReservas extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 510, 190));
 
-        disponivelBreve.setContentAreaFilled(false);
-        disponivelBreve.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        disponivelBreve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                disponivelBreveActionPerformed(evt);
-            }
-        });
-        getContentPane().add(disponivelBreve, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 160, 100));
-
         livrosDisponiveis.setContentAreaFilled(false);
         livrosDisponiveis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         livrosDisponiveis.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +81,10 @@ public class TelaReservas extends javax.swing.JFrame {
                 livrosDisponiveisActionPerformed(evt);
             }
         });
-        getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 150, 90));
+        getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 150, 90));
+
+        nomeJLabel.setFont(new java.awt.Font("Calibri Light", 1, 24)); // NOI18N
+        getContentPane().add(nomeJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 300, 30));
 
         voltar.setContentAreaFilled(false);
         voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -106,7 +102,7 @@ public class TelaReservas extends javax.swing.JFrame {
                 reservasActionPerformed(evt);
             }
         });
-        getContentPane().add(reservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 160, 100));
+        getContentPane().add(reservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 160, 100));
 
         devolucao.setContentAreaFilled(false);
         devolucao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -146,12 +142,6 @@ public class TelaReservas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_livrosDisponiveisActionPerformed
 
-    private void disponivelBreveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disponivelBreveActionPerformed
-        TelaDisponiveisBreve telaDisponiveisBreve = new TelaDisponiveisBreve();
-        telaDisponiveisBreve.setVisible(true);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_disponivelBreveActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -188,15 +178,22 @@ public class TelaReservas extends javax.swing.JFrame {
             }
         });
     }
+    public JLabel getNomeJLabel() {
+        return nomeJLabel;
+    }
+
+    public void setNomeJLabel(JLabel nomeJLabel) {
+        this.nomeJLabel = nomeJLabel;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton configConta;
     private javax.swing.JButton devolucao;
-    private javax.swing.JButton disponivelBreve;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton livrosDisponiveis;
+    private javax.swing.JLabel nomeJLabel;
     private javax.swing.JButton reservas;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
