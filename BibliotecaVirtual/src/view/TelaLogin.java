@@ -38,8 +38,8 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        cadastro = new javax.swing.JButton();
+        entrar = new javax.swing.JButton();
         emailText = new javax.swing.JTextField();
         senhajPass = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
@@ -51,26 +51,24 @@ public class TelaLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cadastro.setContentAreaFilled(false);
+        cadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cadastroActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, -1, -1));
+        getContentPane().add(cadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 270, 60, 10));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        entrar.setContentAreaFilled(false);
+        entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                entrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, -1));
-
-        emailText.setText("jTextField1");
+        getContentPane().add(entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, 20));
         getContentPane().add(emailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 300, -1));
-
-        senhajPass.setText("jPasswordField1");
         getContentPane().add(senhajPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 300, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Login (1).png"))); // NOI18N
@@ -80,7 +78,7 @@ public class TelaLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
         String email = getEmailText().getText().toLowerCase();
         String senha = String.valueOf(senhajPass.getPassword()) ;
         
@@ -94,12 +92,12 @@ public class TelaLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "O email deve ser institucional");
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_entrarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroActionPerformed
         TelaCadastro tela = new TelaCadastro();
         tela.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,9 +136,9 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cadastro;
     private javax.swing.JTextField emailText;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton entrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
