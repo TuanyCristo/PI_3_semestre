@@ -93,35 +93,42 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
     public boolean alterarItem(int id, Usuario objeto) {
         Conexao conect = new Conexao();
         con = conect.criaConexao();
-        
+
         if (con == null) {
             System.out.println("Falha ao estabelecer conexão com o banco de dados.");
             return false;
         }
-        
-        String query = "UPDATE usuarios SET nome= ?, email= ?, senha= ? WHERE id_user= ?";
-    
+
+        String query;
+        boolean alterarSenha = objeto.getSenha() != null && !objeto.getSenha().isEmpty();
+
+        if (alterarSenha) {
+            query = "UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE id_user = ?";
+        } else {
+            query = "UPDATE usuarios SET nome = ?, email = ? WHERE id_user = ?";
+        }
+
         try (PreparedStatement stmt = con.prepareStatement(query)) {
             stmt.setString(1, objeto.getNome());
             stmt.setString(2, objeto.getEmailInstitucional());
+            stmt.setInt(4, id);
 
-            if (objeto.getSenha() != null && !objeto.getSenha().isEmpty()) {
-                stmt.setString(3, objeto.getSenha());
-                stmt.setInt(4, objeto.getIdUsuario());
-            } else {
-                stmt.setInt(3, objeto.getIdUsuario());
+            if (alterarSenha) {
+                String novaSenhaHash = BCrypt.hashpw(objeto.getSenha(), BCrypt.gensalt());
+                stmt.setString(3, novaSenhaHash);
             }
 
             int linhasModificadas = stmt.executeUpdate();
             if (linhasModificadas > 0) return true;
 
         } catch(SQLException e) {
-        System.out.println("Erro na query");
-        System.out.println("Erro: " + e.getMessage());
-    }
-        conect.fechaConexao();
-        return false;
-    }
+            System.out.println("Erro na query");
+            System.out.println("Erro: " + e.getMessage());
+        } finally {
+            conect.fechaConexao();
+        }
+    return false;
+}
 
     @Override
     public List<Usuario> listarItens() {
@@ -261,4 +268,33 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
     
     
     }
+
+    public boolean verificarSenhaAtual(int id, String senhaAtual) {
+        Conexao conect = new Conexao();
+        con = conect.criaConexao();
+
+        if (con == null) {
+            System.out.println("Falha ao estabelecer conexão com o banco de dados.");
+            return false;
+        }
+
+        String query = "SELECT senha FROM usuarios WHERE id_user = ?";
+
+        try (PreparedStatement stmt = con.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                String senhaHash = rs.getString("senha");
+                return BCrypt.checkpw(senhaAtual, senhaHash);
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao verificar senha atual.");
+            System.out.println("Erro: " + e.getMessage());
+        } finally {
+            conect.fechaConexao();
+        }
+        return false;
+    }
+    
 }
