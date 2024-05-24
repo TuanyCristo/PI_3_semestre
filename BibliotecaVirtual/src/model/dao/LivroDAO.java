@@ -208,6 +208,10 @@ public class LivroDAO implements InterfaceDAO<Livro, Integer>{
         
         }       
     }
+
+    public boolean fazerReserva(Usuario u, String titulo) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
    
     
 

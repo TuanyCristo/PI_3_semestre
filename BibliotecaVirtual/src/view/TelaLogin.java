@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package view;
 
 import controller.UsuarioController;
@@ -67,7 +64,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 entrarActionPerformed(evt);
             }
         });
-        getContentPane().add(entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, 20));
+        getContentPane().add(entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 80, 30));
         getContentPane().add(emailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 300, -1));
         getContentPane().add(senhajPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 300, -1));
 

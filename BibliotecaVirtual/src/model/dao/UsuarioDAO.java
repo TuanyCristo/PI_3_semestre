@@ -92,13 +92,14 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
             System.out.println("Falha ao estabelecer conexão com o banco de dados.");
         }
 
-        String query = "UPDATE usuarios SET nome = ?, email = ? WHERE id_user = ?";
+        String query = "UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE id_user = ?";
 
         try (PreparedStatement stmt = con.prepareStatement(query)) {
 
             stmt.setString(1, objeto.getNome());
             stmt.setString(2, objeto.getEmailInstitucional());
-            stmt.setInt(3, id);
+            stmt.setString(3, objeto.getSenha());
+            stmt.setInt(4, id);
 
             int linhasModificadas = stmt.executeUpdate();
             if (linhasModificadas > 0) {

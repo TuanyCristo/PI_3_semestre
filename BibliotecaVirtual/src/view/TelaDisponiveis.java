@@ -4,7 +4,15 @@
  */
 package view;
 
+import controller.LivroController;
+import controller.ReservaController;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.livros.Livro;
+import model.user.Usuario;
 
 /**
  *
@@ -12,11 +20,25 @@ import javax.swing.JLabel;
  */
 public class TelaDisponiveis extends javax.swing.JFrame {
 
+    private LivroController controller;
+    private Usuario usuario;
+    private ReservaController  conReserva;
     /**
      * Creates new form TelaDisponiveis
      */
     public TelaDisponiveis() {
         initComponents();
+        this.controller = new LivroController();
+        carregaTabela();
+    }
+    
+        public TelaDisponiveis(Usuario user) {
+        initComponents();
+        this.controller = new LivroController();
+        this.usuario = user;
+        this.conReserva = new ReservaController();
+        nomeJLabel.setText(user.getNome());
+        carregaTabela();
     }
 
     /**
@@ -29,9 +51,9 @@ public class TelaDisponiveis extends javax.swing.JFrame {
     private void initComponents() {
 
         voltar = new javax.swing.JButton();
-        reservasLivros = new javax.swing.JButton();
+        reservarLivros = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table = new javax.swing.JTable();
+        tabelaLivros = new javax.swing.JTable();
         livrosDisponiveis = new javax.swing.JButton();
         reservas = new javax.swing.JButton();
         nomeJLabel = new javax.swing.JLabel();
@@ -51,16 +73,16 @@ public class TelaDisponiveis extends javax.swing.JFrame {
         });
         getContentPane().add(voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 473, 150, 40));
 
-        reservasLivros.setContentAreaFilled(false);
-        reservasLivros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        reservasLivros.addActionListener(new java.awt.event.ActionListener() {
+        reservarLivros.setContentAreaFilled(false);
+        reservarLivros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        reservarLivros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reservasLivrosActionPerformed(evt);
+                reservarLivrosActionPerformed(evt);
             }
         });
-        getContentPane().add(reservasLivros, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 40));
+        getContentPane().add(reservarLivros, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 40));
 
-        table.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -74,7 +96,7 @@ public class TelaDisponiveis extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Título", "Autor", "Quantidade de exemplares"
+                "Título", "Autor", "Exemplares disponíveis"
             }
         ) {
             Class[] types = new Class [] {
@@ -85,9 +107,9 @@ public class TelaDisponiveis extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(table);
+        jScrollPane1.setViewportView(tabelaLivros);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, 190));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 600, 290));
 
         livrosDisponiveis.setContentAreaFilled(false);
         livrosDisponiveis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -152,9 +174,31 @@ public class TelaDisponiveis extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_livrosDisponiveisActionPerformed
 
-    private void reservasLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservasLivrosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_reservasLivrosActionPerformed
+    private void reservarLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarLivrosActionPerformed
+        DefaultTableModel model = (DefaultTableModel) tabelaLivros.getModel();
+        int numRows = model.getRowCount();
+        List<Integer> livrosSelecionados = new ArrayList<>();
+
+        for (int i = 0; i < numRows; i++) {
+            Boolean verCheckbox = (Boolean) model.getValueAt(i, 0);
+
+            if (verCheckbox) {
+                
+                Integer idLivro = (Integer) model.getValueAt(i, 1);
+                livrosSelecionados.add(idLivro);
+            }
+        }
+
+        // Faz a reserva dos livros selecionados
+        boolean reservaFeita = conReserva.fazerReserva(usuario.getIdUsuario(), livrosSelecionados);
+
+        if (reservaFeita) {
+            JOptionPane.showMessageDialog(this, "Reserva dos livros selecionados feita com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao fazer reserva dos livros selecionados.");
+        }
+
+    }//GEN-LAST:event_reservarLivrosActionPerformed
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         TelaAluno telaAluno = new TelaAluno();
@@ -211,16 +255,20 @@ public JLabel getNomeJLabel() {
     public void setNomeJLabel(JLabel nomeJLabel) {
         this.nomeJLabel = nomeJLabel;
     }
+    
+    private void carregaTabela(){
+        controller.carregaLirosDisponiveis(tabelaLivros);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton configConta;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jlabel;
     private javax.swing.JButton livrosDisponiveis;
     private javax.swing.JLabel nomeJLabel;
+    private javax.swing.JButton reservarLivros;
     private javax.swing.JButton reservas;
-    private javax.swing.JButton reservasLivros;
     private javax.swing.JButton sair;
-    private javax.swing.JTable table;
+    private javax.swing.JTable tabelaLivros;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

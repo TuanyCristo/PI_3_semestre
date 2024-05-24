@@ -123,29 +123,31 @@ public class TelaConfigConta extends javax.swing.JFrame {
         Usuario novo = new Usuario();
         novo.setNome(nomeTexto);
         novo.setEmailInstitucional(email);
-        novo.setIdUsuario(usuario.getIdUsuario());
-        if (controller.verificaSenha(senha, senha2)) {
-            if (controller.validaSenha(senha)) {
-                if (controller.alterarSenha(usuario.getIdUsuario(), senha, senha2)) {
-                    usuario.setNome(nomeTexto);
-                    usuario.setEmailInstitucional(email);
-
-                    if (controller.alterar(usuario.getIdUsuario(), usuario)) {
-                        JOptionPane.showMessageDialog(null, "Dados e senha alterados com sucesso");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Não foi possível alterar os dados");
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Não foi possível alterar a senha");
+        
+        novo.setSenha(senha2);
+        
+        if(senha.equals("")){
+            novo.setSenha(usuario.getSenha());
+            if(controller.alterar(usuario.getIdUsuario(), novo)){
+                JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+                controller.atualizaView(novo.getEmailInstitucional());
+            } else {
+                JOptionPane.showMessageDialog(null, "Não foi possível efetuar alteração");
+            }
+        } else if(senha.equals(usuario.getSenha())){
+            if(controller.validaSenha(senha2)){
+                if(controller.alterar(usuario.getIdUsuario(), novo)){
+                    JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+                    controller.atualizaView(novo.getEmailInstitucional());
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "A senha deve conter 8 dígitos, incluindo números, letras maiúsculas e minúsculas, e um caractere especial");
+                JOptionPane.showMessageDialog(null, "A senha deve conter 8 dígitos entre números, letras maíusculas e minusculas e pelo menos um caractere especial.");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "As senhas não coincidem");
+                JOptionPane.showMessageDialog(null, "A senha atual está incorreta");
         }
-    
-
+        
+        dispose();
 
     }//GEN-LAST:event_alterarActionPerformed
 

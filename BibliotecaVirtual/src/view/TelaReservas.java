@@ -30,7 +30,7 @@ public class TelaReservas extends javax.swing.JFrame {
 
         configConta = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaReserva = new javax.swing.JTable();
         livrosDisponiveis = new javax.swing.JButton();
         nomeJLabel = new javax.swing.JLabel();
         voltar = new javax.swing.JButton();
@@ -51,34 +51,34 @@ public class TelaReservas extends javax.swing.JFrame {
         });
         getContentPane().add(configConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 190, 20));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaReserva.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Minhas Reservas", "Livros Disponíveis", "Disponíveis em breve", "Meu histórico"
+                "", "Data de reserva", "Data de devolução"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabelaReserva);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 510, 190));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 510, 240));
 
         livrosDisponiveis.setContentAreaFilled(false);
         livrosDisponiveis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -217,11 +217,11 @@ public class TelaReservas extends javax.swing.JFrame {
     private javax.swing.JButton devolucao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton livrosDisponiveis;
     private javax.swing.JLabel nomeJLabel;
     private javax.swing.JButton reservas;
     private javax.swing.JButton sair;
+    private javax.swing.JTable tabelaReserva;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

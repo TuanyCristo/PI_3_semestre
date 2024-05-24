@@ -18,6 +18,10 @@ public class Reserva  {
 
     public Reserva() {
     }
+    
+    public Reserva(int id) {
+        this.id = id;
+    }
 
     public Reserva(int id, Livro livros, Usuario user, String dataParaReserva) {
         this.id = id;
@@ -38,6 +42,8 @@ public class Reserva  {
         ob.add(Calendar.DATE, + 10);
         this.dataDevolucao = ob.getTime();
     }
+
+
 
     public int getId() {
         return id;
