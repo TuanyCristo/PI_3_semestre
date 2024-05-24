@@ -35,6 +35,7 @@ public class TelaReservas extends javax.swing.JFrame {
         nomeJLabel = new javax.swing.JLabel();
         voltar = new javax.swing.JButton();
         reservas = new javax.swing.JButton();
+        sair = new javax.swing.JButton();
         devolucao = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -43,6 +44,11 @@ public class TelaReservas extends javax.swing.JFrame {
 
         configConta.setContentAreaFilled(false);
         configConta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        configConta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                configContaActionPerformed(evt);
+            }
+        });
         getContentPane().add(configConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 190, 20));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -104,6 +110,16 @@ public class TelaReservas extends javax.swing.JFrame {
         });
         getContentPane().add(reservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 160, 100));
 
+        sair.setBackground(new java.awt.Color(255, 204, 153));
+        sair.setForeground(new java.awt.Color(255, 255, 255));
+        sair.setText("Sair");
+        sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairActionPerformed(evt);
+            }
+        });
+        getContentPane().add(sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, 60, 20));
+
         devolucao.setContentAreaFilled(false);
         devolucao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         devolucao.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +157,16 @@ public class TelaReservas extends javax.swing.JFrame {
         telaDisponiveis.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_livrosDisponiveisActionPerformed
+
+    private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
+        TelaLogin telaLogin = new TelaLogin();
+        telaLogin.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sairActionPerformed
+
+    private void configContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configContaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_configContaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,6 +221,7 @@ public class TelaReservas extends javax.swing.JFrame {
     private javax.swing.JButton livrosDisponiveis;
     private javax.swing.JLabel nomeJLabel;
     private javax.swing.JButton reservas;
+    private javax.swing.JButton sair;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables
 }

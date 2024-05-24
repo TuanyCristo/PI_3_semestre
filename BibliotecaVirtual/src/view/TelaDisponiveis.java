@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author isata
@@ -28,12 +30,12 @@ public class TelaDisponiveis extends javax.swing.JFrame {
 
         voltar = new javax.swing.JButton();
         reservasLivros = new javax.swing.JButton();
-        historico = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         livrosDisponiveis = new javax.swing.JButton();
-        disponivelBreve = new javax.swing.JButton();
         reservas = new javax.swing.JButton();
+        nomeJLabel = new javax.swing.JLabel();
+        sair = new javax.swing.JButton();
         configConta = new javax.swing.JButton();
         jlabel = new javax.swing.JLabel();
 
@@ -57,10 +59,6 @@ public class TelaDisponiveis extends javax.swing.JFrame {
             }
         });
         getContentPane().add(reservasLivros, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 40));
-
-        historico.setContentAreaFilled(false);
-        historico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(historico, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 260, 150, 100));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,7 +87,7 @@ public class TelaDisponiveis extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(table);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, 250));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, 190));
 
         livrosDisponiveis.setContentAreaFilled(false);
         livrosDisponiveis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -98,16 +96,7 @@ public class TelaDisponiveis extends javax.swing.JFrame {
                 livrosDisponiveisActionPerformed(evt);
             }
         });
-        getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 260, 150, 100));
-
-        disponivelBreve.setContentAreaFilled(false);
-        disponivelBreve.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        disponivelBreve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                disponivelBreveActionPerformed(evt);
-            }
-        });
-        getContentPane().add(disponivelBreve, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 150, 90));
+        getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 150, 90));
 
         reservas.setContentAreaFilled(false);
         reservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -116,7 +105,20 @@ public class TelaDisponiveis extends javax.swing.JFrame {
                 reservasActionPerformed(evt);
             }
         });
-        getContentPane().add(reservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 150, 100));
+        getContentPane().add(reservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 150, 90));
+
+        nomeJLabel.setFont(new java.awt.Font("Calibri Light", 1, 24)); // NOI18N
+        getContentPane().add(nomeJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 300, 30));
+
+        sair.setBackground(new java.awt.Color(255, 204, 153));
+        sair.setForeground(new java.awt.Color(255, 255, 255));
+        sair.setText("Sair");
+        sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairActionPerformed(evt);
+            }
+        });
+        getContentPane().add(sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, 60, 20));
 
         configConta.setContentAreaFilled(false);
         configConta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -160,11 +162,11 @@ public class TelaDisponiveis extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_voltarActionPerformed
 
-    private void disponivelBreveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disponivelBreveActionPerformed
-        TelaDisponiveisBreve telaDisponiveisBreve = new TelaDisponiveisBreve();
-        telaDisponiveisBreve.setVisible(true);
+    private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
+        TelaLogin telaLogin = new TelaLogin();
+        telaLogin.setVisible(true);
         // TODO add your handling code here:
-    }//GEN-LAST:event_disponivelBreveActionPerformed
+    }//GEN-LAST:event_sairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,21 +199,27 @@ public class TelaDisponiveis extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 TelaDisponiveis telaDisponiveis = new TelaDisponiveis();
-                telaDisponiveis.setSize(800, 800);
+                telaDisponiveis.setSize(810, 800);
                 telaDisponiveis.setVisible(true);
             }
         });
     }
+public JLabel getNomeJLabel() {
+        return nomeJLabel;
+    }
 
+    public void setNomeJLabel(JLabel nomeJLabel) {
+        this.nomeJLabel = nomeJLabel;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton configConta;
-    private javax.swing.JButton disponivelBreve;
-    private javax.swing.JButton historico;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jlabel;
     private javax.swing.JButton livrosDisponiveis;
+    private javax.swing.JLabel nomeJLabel;
     private javax.swing.JButton reservas;
     private javax.swing.JButton reservasLivros;
+    private javax.swing.JButton sair;
     private javax.swing.JTable table;
     private javax.swing.JButton voltar;
     // End of variables declaration//GEN-END:variables

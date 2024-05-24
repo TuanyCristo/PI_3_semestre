@@ -39,8 +39,9 @@ public class TelaAluno extends javax.swing.JFrame {
         configConta = new javax.swing.JButton();
         reservas = new javax.swing.JButton();
         livrosDisponiveis = new javax.swing.JButton();
+        sair = new javax.swing.JButton();
         nomeJLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        JLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,11 +79,21 @@ public class TelaAluno extends javax.swing.JFrame {
         });
         getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 160, 100));
 
+        sair.setBackground(new java.awt.Color(255, 204, 153));
+        sair.setForeground(new java.awt.Color(255, 255, 255));
+        sair.setText("Sair");
+        sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairActionPerformed(evt);
+            }
+        });
+        getContentPane().add(sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(692, 170, 60, 20));
+
         nomeJLabel.setFont(new java.awt.Font("Calibri Light", 1, 24)); // NOI18N
         getContentPane().add(nomeJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 300, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Tela Aluno.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, -1));
+        JLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Tela Aluno.png"))); // NOI18N
+        getContentPane().add(JLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -108,6 +119,12 @@ public class TelaAluno extends javax.swing.JFrame {
             tela.setVisible(true);
         } 
     }//GEN-LAST:event_configContaActionPerformed
+
+    private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
+        TelaLogin telaLogin = new TelaLogin();
+        telaLogin.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,10 +173,11 @@ public class TelaAluno extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLabel1;
     private javax.swing.JButton configConta;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton livrosDisponiveis;
     private javax.swing.JLabel nomeJLabel;
     private javax.swing.JButton reservas;
+    private javax.swing.JButton sair;
     // End of variables declaration//GEN-END:variables
 }
