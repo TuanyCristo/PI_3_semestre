@@ -4,21 +4,22 @@
  */
 package view;
 
+import controller.UsuarioController;
 import javax.swing.JLabel;
 import model.user.Usuario;
-
 /**
  *
  * @author isata
  */
 public class TelaAluno extends javax.swing.JFrame {
-    //private UsuarioController user;
-    /**
-     * Creates new form TelaAluno
-     * @param user
-     */
+    private UsuarioController controller;
+    private Usuario usuario;
+
     public TelaAluno(Usuario user) {
         initComponents();
+        this.controller = new UsuarioController();
+        this.usuario = user;
+        
     }
     
     public TelaAluno() {
@@ -46,6 +47,12 @@ public class TelaAluno extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         configConta.setContentAreaFilled(false);
+        configConta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        configConta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                configContaActionPerformed(evt);
+            }
+        });
         getContentPane().add(configConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 180, 20));
 
         reservas.setBackground(new java.awt.Color(51, 75, 210));
@@ -111,6 +118,13 @@ public class TelaAluno extends javax.swing.JFrame {
         telaDisponiveisBreve.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_disponivelBreveActionPerformed
+
+    private void configContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configContaActionPerformed
+        if(usuario != null){
+            TelaConfigConta tela = new TelaConfigConta(usuario);
+            tela.setVisible(true);
+        } 
+    }//GEN-LAST:event_configContaActionPerformed
 
     /**
      * @param args the command line arguments

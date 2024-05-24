@@ -41,6 +41,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         emailText = new javax.swing.JTextField();
         senhajPass = new javax.swing.JPasswordField();
@@ -52,6 +53,14 @@ public class TelaLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, -1, -1));
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -79,18 +88,19 @@ public class TelaLogin extends javax.swing.JFrame {
         String senha = String.valueOf(senhajPass.getPassword()) ;
         
         if(user.login(email, senha)){
-            JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
             dispose();
         }else if(admin.login(email, senha)){
             JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
-            TelaAdmin tela2 = new TelaAdmin();
-            tela2.setVisible(true);
-            dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        TelaCadastro tela = new TelaCadastro();
+        tela.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,6 +141,7 @@ public class TelaLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField emailText;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;

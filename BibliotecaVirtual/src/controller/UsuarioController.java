@@ -6,6 +6,7 @@ import model.dao.UsuarioDAO;
 import model.user.Usuario;
 import view.TelaAdmin;
 import view.TelaAluno;
+import view.TelaConfigConta;
 import view.TelaLogin;
 
 public class UsuarioController implements Controller<Usuario, Integer>{
@@ -25,6 +26,19 @@ public class UsuarioController implements Controller<Usuario, Integer>{
 
     @Override
     public boolean alterar(int id, Usuario objeto) {
+        TelaConfigConta tela = new TelaConfigConta();
+        String nome = tela.getNome().getText();
+        String email = tela.getEmailc().getText();
+    
+        objeto.setNome(nome);
+        
+        char[] senhaChars = tela.getSenhac().getPassword();
+        String senha = new String(senhaChars);
+        
+        if (!senha.isEmpty()) {
+            objeto.setSenha(senha);
+        }
+        
         return user.alterarItem(id, objeto);
     }
 
@@ -58,6 +72,7 @@ public class UsuarioController implements Controller<Usuario, Integer>{
         }
         return false;
     }
+      
     
     @Override
     public void atualizaView(){

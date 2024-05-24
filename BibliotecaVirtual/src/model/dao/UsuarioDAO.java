@@ -35,8 +35,8 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
                     String senhaHash = rs.getString("senha");
                     
                     boolean senhaVerificada = BCrypt.checkpw(senha, senhaHash);
-                    if(!senhaVerificada){
-                        return false;
+                    if(senhaVerificada){
+                        return true;
                     }
                 }
             } catch(SQLException e){
@@ -47,7 +47,7 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
             System.out.println("Erro: " + e.getMessage());
         }
         conect.fechaConexao();
-        return true;
+        return false;
     }
     
     private Usuario retorna(ResultSet rs) throws SQLException {
@@ -99,22 +99,26 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
             return false;
         }
         
-        String query = "UPDATE usuarios SET nome= ?, email= ?,"
-                + "senha= ? WHERE id_livro= ?";
-        
+        String query = "UPDATE usuarios SET nome= ?, email= ?, senha= ? WHERE id_user= ?";
+    
         try (PreparedStatement stmt = con.prepareStatement(query)) {
             stmt.setString(1, objeto.getNome());
             stmt.setString(2, objeto.getEmailInstitucional());
-            stmt.setString(3, objeto.getSenha());
-            stmt.setInt(4, objeto.getIdUsuario());
-            
+
+            if (objeto.getSenha() != null && !objeto.getSenha().isEmpty()) {
+                stmt.setString(3, objeto.getSenha());
+                stmt.setInt(4, objeto.getIdUsuario());
+            } else {
+                stmt.setInt(3, objeto.getIdUsuario());
+            }
+
             int linhasModificadas = stmt.executeUpdate();
-            if(linhasModificadas > 0) return true;
-            
+            if (linhasModificadas > 0) return true;
+
         } catch(SQLException e) {
-            System.out.println("Erro na query");
-            System.out.println("Erro: " + e.getMessage());
-        }
+        System.out.println("Erro na query");
+        System.out.println("Erro: " + e.getMessage());
+    }
         conect.fechaConexao();
         return false;
     }
