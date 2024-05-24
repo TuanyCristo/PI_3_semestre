@@ -67,7 +67,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 entrarActionPerformed(evt);
             }
         });
-        getContentPane().add(entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, 20));
+        getContentPane().add(entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 80, 30));
         getContentPane().add(emailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 300, -1));
         getContentPane().add(senhajPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 300, -1));
 

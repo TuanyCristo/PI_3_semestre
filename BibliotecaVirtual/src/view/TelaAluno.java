@@ -117,6 +117,7 @@ public class TelaAluno extends javax.swing.JFrame {
             tela.getNome().setText(usuario.getNome());
             tela.getEmailc().setText(usuario.getEmailInstitucional());
             tela.setVisible(true);
+            dispose();
         } 
     }//GEN-LAST:event_configContaActionPerformed
 
