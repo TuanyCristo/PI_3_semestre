@@ -154,6 +154,7 @@ public class TelaConfigConta extends javax.swing.JFrame {
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         TelaLogin telaLogin = new TelaLogin();
         telaLogin.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelarActionPerformed
 

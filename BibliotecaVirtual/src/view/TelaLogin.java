@@ -88,12 +88,13 @@ public class TelaLogin extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "O email deve ser institucional");
         }
-        
+        dispose();
     }//GEN-LAST:event_entrarActionPerformed
 
     private void cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroActionPerformed
         TelaCadastro tela = new TelaCadastro();
         tela.setVisible(true);
+        dispose();
     }//GEN-LAST:event_cadastroActionPerformed
 
     /**

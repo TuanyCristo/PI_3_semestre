@@ -203,12 +203,14 @@ public class TelaDisponiveis extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         TelaAluno telaAluno = new TelaAluno();
         telaAluno.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_voltarActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
         TelaLogin telaLogin = new TelaLogin();
         telaLogin.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_sairActionPerformed
 

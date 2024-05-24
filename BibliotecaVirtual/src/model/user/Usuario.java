@@ -23,8 +23,6 @@ public class Usuario extends Pessoa {
     public void setListaLivros(ArrayList<Livro> listaLivros) {
         this.listaLivros = listaLivros;
     }
-
-    
     
    
 }

@@ -143,24 +143,28 @@ public class TelaReservas extends javax.swing.JFrame {
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         TelaAluno telaAluno = new TelaAluno();
         telaAluno.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_voltarActionPerformed
 
     private void reservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservasActionPerformed
         TelaReservas telaReservas = new TelaReservas();
         telaReservas.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_reservasActionPerformed
 
     private void livrosDisponiveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_livrosDisponiveisActionPerformed
         TelaDisponiveis telaDisponiveis = new TelaDisponiveis();
         telaDisponiveis.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_livrosDisponiveisActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
         TelaLogin telaLogin = new TelaLogin();
         telaLogin.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_sairActionPerformed
 

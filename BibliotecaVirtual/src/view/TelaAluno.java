@@ -103,6 +103,7 @@ public class TelaAluno extends javax.swing.JFrame {
     private void reservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservasActionPerformed
         TelaReservas telaReservas = new TelaReservas();
         telaReservas.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_reservasActionPerformed
 
@@ -110,6 +111,7 @@ public class TelaAluno extends javax.swing.JFrame {
 
         TelaDisponiveis telaDisponiveis = new TelaDisponiveis(usuario);
         telaDisponiveis.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_livrosDisponiveisActionPerformed
 
@@ -124,9 +126,9 @@ public class TelaAluno extends javax.swing.JFrame {
     }//GEN-LAST:event_configContaActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
-        dispose();
         TelaLogin telaLogin = new TelaLogin();
         telaLogin.setVisible(true);
+        dispose();
         
         // TODO add your handling code here:
     }//GEN-LAST:event_sairActionPerformed
