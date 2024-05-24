@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import model.conexao.Conexao;
 import model.user.Usuario;
-import org.mindrot.jbcrypt.BCrypt;
+
 
 public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
     private Connection con;
@@ -31,11 +31,7 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
             
             try(ResultSet rs = stmt.executeQuery()){
                 if(rs.next()){
-                    
-                    String senhaHash = rs.getString("senha");
-                    
-                    boolean senhaVerificada = BCrypt.checkpw(senha, senhaHash);
-                    if(senhaVerificada){
+                   if(senha.equals(rs.getString("senha"))){
                         return true;
                     }
                 }
@@ -55,8 +51,7 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
                     rs.getInt("id_user"),
                     rs.getString("nome"),
                     rs.getString("email"),
-                    rs.getString("senha"),
-                    rs.getString("tipo")
+                    rs.getString("senha")
             );
     }
 
@@ -70,14 +65,13 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
             return false;
         }
         
-        String query = "INSERT INTO usuarios (nome, email, senha, tipo)"
-                + " VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO usuarios (nome, email, senha)"
+                + " VALUES (?, ?, ?)";
         
         try (PreparedStatement stmt = con.prepareStatement(query)) {
             stmt.setString(1, objeto.getNome());
             stmt.setString(2, objeto.getEmailInstitucional());
             stmt.setString(3, objeto.getSenha());
-            stmt.setString(4, objeto.getNivelAcesso());
             
             int linhasModificadas = stmt.executeUpdate();
             if(linhasModificadas > 0) return true;
@@ -96,39 +90,28 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
 
         if (con == null) {
             System.out.println("Falha ao estabelecer conexão com o banco de dados.");
-            return false;
         }
 
-        String query;
-        boolean alterarSenha = objeto.getSenha() != null && !objeto.getSenha().isEmpty();
-
-        if (alterarSenha) {
-            query = "UPDATE usuarios SET nome = ?, email = ?, senha = ? WHERE id_user = ?";
-        } else {
-            query = "UPDATE usuarios SET nome = ?, email = ? WHERE id_user = ?";
-        }
+        String query = "UPDATE usuarios SET nome = ?, email = ? WHERE id_user = ?";
 
         try (PreparedStatement stmt = con.prepareStatement(query)) {
+
             stmt.setString(1, objeto.getNome());
             stmt.setString(2, objeto.getEmailInstitucional());
-            stmt.setInt(4, id);
-
-            if (alterarSenha) {
-                String novaSenhaHash = BCrypt.hashpw(objeto.getSenha(), BCrypt.gensalt());
-                stmt.setString(3, novaSenhaHash);
-            }
+            stmt.setInt(3, id);
 
             int linhasModificadas = stmt.executeUpdate();
-            if (linhasModificadas > 0) return true;
+            if (linhasModificadas > 0) {
+                return true;
+            }
 
         } catch(SQLException e) {
             System.out.println("Erro na query");
             System.out.println("Erro: " + e.getMessage());
-        } finally {
-            conect.fechaConexao();
         }
-    return false;
-}
+            conect.fechaConexao();
+            return false;
+    }
 
     @Override
     public List<Usuario> listarItens() {
@@ -217,8 +200,7 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
                     rs.getInt("id_user"),
                     rs.getString("nome"),
                     rs.getString("email"),
-                    rs.getString("senha"),
-                    rs.getString("tipo")
+                    rs.getString("senha")
                     );
                     return Optional.of(user);
                 } else {
@@ -253,8 +235,7 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
                 rs.getInt("id_user"),
                 rs.getString("nome"),
                 rs.getString("email"),
-                rs.getString("senha"),
-                rs.getString("tipo")
+                rs.getString("senha")
                 );
             } else {
                 return null;
@@ -267,34 +248,6 @@ public class UsuarioDAO implements InterfaceDAO<Usuario, Integer>{
         }
     
     
-    }
-
-    public boolean verificarSenhaAtual(int id, String senhaAtual) {
-        Conexao conect = new Conexao();
-        con = conect.criaConexao();
-
-        if (con == null) {
-            System.out.println("Falha ao estabelecer conexão com o banco de dados.");
-            return false;
-        }
-
-        String query = "SELECT senha FROM usuarios WHERE id_user = ?";
-
-        try (PreparedStatement stmt = con.prepareStatement(query)) {
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                String senhaHash = rs.getString("senha");
-                return BCrypt.checkpw(senhaAtual, senhaHash);
-            }
-        } catch (SQLException e) {
-            System.out.println("Erro ao verificar senha atual.");
-            System.out.println("Erro: " + e.getMessage());
-        } finally {
-            conect.fechaConexao();
-        }
-        return false;
     }
     
 }

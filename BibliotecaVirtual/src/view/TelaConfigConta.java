@@ -125,17 +125,27 @@ public class TelaConfigConta extends javax.swing.JFrame {
             novo.setNome(nomeTexto);
             novo.setEmailInstitucional(email);
             novo.setIdUsuario(usuario.getIdUsuario());
+            if(controller.validaSenha(senha2)){
+                novo.setSenha(senha2);
+            } else {
+                JOptionPane.showMessageDialog(null, "A senha deve conter 8 digitos entre números, letras maiúsculas e minúsculas e um caractere especial;");
+            }
 
             if(senha.equals("")){
                 if(controller.alterar(usuario.getIdUsuario(),novo)){
-                    System.out.println("view.TelaConfigConta.alterarActionPerformed()");
-                }else{
-                    System.out.println("fudeu");
+                    JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+                }else {
+                    JOptionPane.showMessageDialog(null, "Não foi possível alterar");
                 }
-            }else if(controller.alterar(usuario.getIdUsuario(),controller.criarUsuario(nomeTexto, email, senha))){
-            } else{
-                System.out.println("fudeu2");
+                
+                    if(controller.alterarSenha(usuario.getIdUsuario(),controller.criarUsuario(nomeTexto, email, novo.getSenha()))){
+                        JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Não foi possível alterar");
+                    }
             }
+            
+         
            
     }//GEN-LAST:event_alterarActionPerformed
 

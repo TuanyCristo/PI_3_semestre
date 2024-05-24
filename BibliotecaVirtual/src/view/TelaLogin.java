@@ -4,7 +4,6 @@
  */
 package view;
 
-import controller.AdminController;
 import controller.UsuarioController;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -20,14 +19,12 @@ public class TelaLogin extends javax.swing.JFrame {
      * Creates new form teste
      */
     
-    private final UsuarioController user;
-    private final AdminController admin;
+    private final UsuarioController controller;
     
     public TelaLogin() {
         initComponents();      
     
-        this.user = new UsuarioController();
-        this.admin = new AdminController();
+        this.controller = new UsuarioController();
     }
 
     /**
@@ -87,12 +84,14 @@ public class TelaLogin extends javax.swing.JFrame {
         String email = getEmailText().getText().toLowerCase();
         String senha = String.valueOf(senhajPass.getPassword()) ;
         
-        if(user.login(email, senha)){
-            dispose();
-        }else if(admin.login(email, senha)){
-            JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!");
+        if(controller.validaEmail(email)){
+            if(controller.login(email, senha)){
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
+            }
         }else{
-            JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
+            JOptionPane.showMessageDialog(null, "O email deve ser institucional");
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -4,14 +4,11 @@ import java.util.List;
 import java.util.Optional;
 import model.dao.UsuarioDAO;
 import model.user.Usuario;
-import view.TelaAdmin;
 import view.TelaAluno;
-import view.TelaConfigConta;
 import view.TelaLogin;
 
 public class UsuarioController implements Controller<Usuario, Integer>{
     private TelaLogin view;
-    private TelaAdmin viewAdmin;
     private UsuarioDAO user;
     private TelaAluno telaAluno;
     
@@ -67,7 +64,7 @@ public class UsuarioController implements Controller<Usuario, Integer>{
         
     }
     
-    public Usuario criarUsuario(String nome, String email, String senha, String comparaSenha) throws Exception{
+    public Usuario criarUsuario(String nome, String email, String senha, String comparaSenha){
                      
             if(senha.equals(comparaSenha)){
                 Usuario u = new Usuario();
@@ -76,7 +73,7 @@ public class UsuarioController implements Controller<Usuario, Integer>{
                 u.setSenha(senha);
                 return u;
             } else {
-                throw new Exception("Senha incorreta");
+               return null;
             }
              
     }
@@ -132,10 +129,12 @@ public class UsuarioController implements Controller<Usuario, Integer>{
         }
     }
     
+    public boolean alterarSenha(int id, Usuario user){
+        
+    }
+    
     
     
    
 }
     
-    
-}
