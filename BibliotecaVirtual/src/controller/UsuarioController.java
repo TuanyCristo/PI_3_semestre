@@ -128,13 +128,23 @@ public class UsuarioController implements Controller<Usuario, Integer>{
             return false;
         }
     }
-    
-    public boolean alterarSenha(int id, Usuario user){
-        
+    public boolean alterarSenha(int id, String senha, String senha2){
+         if (!verificaSenha(senha, senha2)) {
+            return false;
+        }
+          if (!validaSenha(senha2)) {
+            return false;
+        }
+          Optional<Usuario> optionalUsuario = buscarId(id);
+        if (optionalUsuario.isPresent()) {
+            Usuario usuario = optionalUsuario.get();
+            // Altera a senha do usuário
+            usuario.setSenha(senha);
+            // Atualiza o usuário no banco de dados
+            return alterar(id, usuario);
+        }
+        return false;
     }
-    
-    
-    
    
 }
     

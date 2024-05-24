@@ -17,6 +17,7 @@ import model.user.Usuario;
  * @author steph
  */
 public class TelaConfigConta extends javax.swing.JFrame {
+
     private final UsuarioController controller;
     private Usuario usuario;
 
@@ -27,14 +28,12 @@ public class TelaConfigConta extends javax.swing.JFrame {
         initComponents();
         this.controller = new UsuarioController();
     }
-    
-    public TelaConfigConta(Usuario user){
+
+    public TelaConfigConta(Usuario user) {
         initComponents();
         this.controller = new UsuarioController();
         this.usuario = user;
     }
-    
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -116,37 +115,38 @@ public class TelaConfigConta extends javax.swing.JFrame {
 
     private void alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarActionPerformed
 
-            String nomeTexto = nome.getText();
-            String email = emailc.getText();
-            String senha = String.valueOf(senhac.getPassword());
-            String senha2 = String.valueOf(senhaco.getPassword());
-            
-            Usuario novo = new Usuario();
-            novo.setNome(nomeTexto);
-            novo.setEmailInstitucional(email);
-            novo.setIdUsuario(usuario.getIdUsuario());
-            if(controller.validaSenha(senha2)){
-                novo.setSenha(senha2);
-            } else {
-                JOptionPane.showMessageDialog(null, "A senha deve conter 8 digitos entre números, letras maiúsculas e minúsculas e um caractere especial;");
-            }
+        String nomeTexto = nome.getText();
+        String email = emailc.getText();
+        String senha = String.valueOf(senhac.getPassword());
+        String senha2 = String.valueOf(senhaco.getPassword());
 
-            if(senha.equals("")){
-                if(controller.alterar(usuario.getIdUsuario(),novo)){
-                    JOptionPane.showMessageDialog(null, "Alterado com sucesso");
-                }else {
-                    JOptionPane.showMessageDialog(null, "Não foi possível alterar");
-                }
-                
-                    if(controller.alterarSenha(usuario.getIdUsuario(),controller.criarUsuario(nomeTexto, email, novo.getSenha()))){
-                        JOptionPane.showMessageDialog(null, "Alterado com sucesso");
+        Usuario novo = new Usuario();
+        novo.setNome(nomeTexto);
+        novo.setEmailInstitucional(email);
+        novo.setIdUsuario(usuario.getIdUsuario());
+        if (controller.verificaSenha(senha, senha2)) {
+            if (controller.validaSenha(senha)) {
+                if (controller.alterarSenha(usuario.getIdUsuario(), senha, senha2)) {
+                    usuario.setNome(nomeTexto);
+                    usuario.setEmailInstitucional(email);
+
+                    if (controller.alterar(usuario.getIdUsuario(), usuario)) {
+                        JOptionPane.showMessageDialog(null, "Dados e senha alterados com sucesso");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Não foi possível alterar");
+                        JOptionPane.showMessageDialog(null, "Não foi possível alterar os dados");
                     }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Não foi possível alterar a senha");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "A senha deve conter 8 dígitos, incluindo números, letras maiúsculas e minúsculas, e um caractere especial");
             }
-            
-         
-           
+        } else {
+            JOptionPane.showMessageDialog(null, "As senhas não coincidem");
+        }
+    
+
+
     }//GEN-LAST:event_alterarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
@@ -238,7 +238,6 @@ public class TelaConfigConta extends javax.swing.JFrame {
     public void setSenhaco(JPasswordField senhaco) {
         this.senhaco = senhaco;
     }
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
