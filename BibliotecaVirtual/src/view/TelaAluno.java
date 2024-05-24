@@ -115,6 +115,7 @@ public class TelaAluno extends javax.swing.JFrame {
 
     private void disponivelBreveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disponivelBreveActionPerformed
         TelaDisponiveisBreve telaDisponiveisBreve = new TelaDisponiveisBreve();
+        
         telaDisponiveisBreve.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_disponivelBreveActionPerformed
@@ -122,6 +123,8 @@ public class TelaAluno extends javax.swing.JFrame {
     private void configContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configContaActionPerformed
         if(usuario != null){
             TelaConfigConta tela = new TelaConfigConta(usuario);
+            tela.getNome().setText(usuario.getNome());
+            tela.getEmailc().setText(usuario.getEmailInstitucional());
             tela.setVisible(true);
         } 
     }//GEN-LAST:event_configContaActionPerformed
@@ -170,7 +173,7 @@ public class TelaAluno extends javax.swing.JFrame {
     public void setNomeJLabel(JLabel nomeJLabel) {
         this.nomeJLabel = nomeJLabel;
     }
-
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton configConta;

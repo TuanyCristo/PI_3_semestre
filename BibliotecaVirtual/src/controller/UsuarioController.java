@@ -21,24 +21,12 @@ public class UsuarioController implements Controller<Usuario, Integer>{
 
     @Override
     public boolean adicionar(Usuario objeto) {
+        
         return user.inserirItem(objeto);
     }
 
     @Override
     public boolean alterar(int id, Usuario objeto) {
-        TelaConfigConta tela = new TelaConfigConta();
-        String nome = tela.getNome().getText();
-        String email = tela.getEmailc().getText();
-    
-        objeto.setNome(nome);
-        
-        char[] senhaChars = tela.getSenhac().getPassword();
-        String senha = new String(senhaChars);
-        
-        if (!senha.isEmpty()) {
-            objeto.setSenha(senha);
-        }
-        
         return user.alterarItem(id, objeto);
     }
 
@@ -90,6 +78,23 @@ public class UsuarioController implements Controller<Usuario, Integer>{
             } else {
                 throw new Exception("Senha incorreta");
             }
+             
+    }
+    
+    public Usuario criarUsuario(String nome, String email, String senha){
+        Usuario u = new Usuario();
+        u.setNome(nome);
+        u.setEmailInstitucional(email);
+        u.setSenha(senha);
+        return u;
+             
+    }
+    
+        public Usuario criarUsuario(String nome, String email){
+        Usuario u = new Usuario();
+        u.setNome(nome);
+        u.setEmailInstitucional(email);
+        return u;
              
     }
     

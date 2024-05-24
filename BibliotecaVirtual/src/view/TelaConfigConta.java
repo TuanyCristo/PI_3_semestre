@@ -5,6 +5,8 @@
 package view;
 
 import controller.UsuarioController;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -30,17 +32,9 @@ public class TelaConfigConta extends javax.swing.JFrame {
         initComponents();
         this.controller = new UsuarioController();
         this.usuario = user;
-        carregarInformao();
     }
     
-    public void carregarInformao(){
-        if(usuario != null){
-            nome.setText(usuario.getNome());
-            emailc.setText(usuario.getEmailInstitucional());
-        } else {
-            JOptionPane.showMessageDialog(null, "vazio");
-        }
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -121,9 +115,28 @@ public class TelaConfigConta extends javax.swing.JFrame {
     }//GEN-LAST:event_emailcActionPerformed
 
     private void alterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarActionPerformed
-        if(controller.alterar(usuario.getIdUsuario(), usuario)){
-            JOptionPane.showMessageDialog(null, "Alterado com sucesso");
-        }
+
+            String nomeTexto = nome.getText();
+            String email = emailc.getText();
+            String senha = String.valueOf(senhac.getPassword());
+            String senha2 = String.valueOf(senhaco.getPassword());
+            
+            Usuario novo = new Usuario();
+            novo.setNome(nomeTexto);
+            novo.setEmailInstitucional(email);
+            novo.setIdUsuario(usuario.getIdUsuario());
+
+            if(senha.equals("")){
+                if(controller.alterar(usuario.getIdUsuario(),novo)){
+                    System.out.println("view.TelaConfigConta.alterarActionPerformed()");
+                }else{
+                    System.out.println("fudeu");
+                }
+            }else if(controller.alterar(usuario.getIdUsuario(),controller.criarUsuario(nomeTexto, email, senha))){
+            } else{
+                System.out.println("fudeu2");
+            }
+           
     }//GEN-LAST:event_alterarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
