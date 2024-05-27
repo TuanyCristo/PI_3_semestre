@@ -10,6 +10,8 @@ import java.util.Optional;
 import model.conexao.Conexao;
 import model.reserva.Reserva;
 import java.sql.Statement;
+import java.util.ArrayList;
+import model.livros.Livro;
 
 public class ReservaDAO implements InterfaceDAO<Reserva, Integer>{
     private Connection con;
@@ -79,14 +81,80 @@ public class ReservaDAO implements InterfaceDAO<Reserva, Integer>{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public List<Reserva> listarItens() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<Reserva> listarItens(int idUser) {
+        List<Reserva> reservas = new ArrayList<>();
+        Conexao conexao = new Conexao();
+        con = conexao.criaConexao();
+
+    if (con == null) {
+        System.out.println("Falha ao estabelecer conexão com o banco de dados.");
+        return reservas;
+    }
+
+    String queryReservas = "SELECT r.id_reserva, r.data_reserva, COUNT(lis.id_livro) AS QTD_LIVRO " +
+                           "FROM reservas r " +
+                           "INNER JOIN listareserva lis ON lis.id_reserva = r.id_reserva " +
+                           "WHERE r.id_usuario = ? " +
+                           "GROUP BY r.id_reserva, r.data_reserva";
+
+    try (PreparedStatement pst = con.prepareStatement(queryReservas)) {
+            pst.setInt(1, idUser);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                int reservaId = rs.getInt("id_reserva");
+                java.sql.Date dataReserva = rs.getDate("data_reserva");
+                int qtdLivros = rs.getInt("QTD_LIVRO");
+
+                // Calcular data de devolução (10 dias após a data de reserva)
+                java.util.Date dataDevolucao = new java.util.Date(dataReserva.getTime() + (10L * 24 * 60 * 60 * 1000));
+
+                Reserva reserva = new Reserva();
+                reserva.setId(reservaId);
+                reserva.setDataReserva(new java.util.Date(dataReserva.getTime()));
+                reserva.setDataDevolucao(dataDevolucao);
+                reserva.setQntLivros(qtdLivros);
+
+                reservas.add(reserva);
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao listar reservas: " + e.getMessage());
+        } finally {
+            conexao.fechaConexao();
+        }
+
+        return reservas;
     }
 
     @Override
     public boolean deletarItem(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Conexao conexao = new Conexao();
+    con = conexao.criaConexao();
+
+    if (con == null) {
+        System.out.println("Falha ao estabelecer conexão com o banco de dados.");
+        return false;
+    }
+
+    String query = "DELETE FROM reservas WHERE id_reserva = ?";
+
+    try (PreparedStatement pst = con.prepareStatement(query)) {
+        pst.setInt(1, id);
+
+        int linhasModificadas = pst.executeUpdate();
+
+        if (linhasModificadas == 0) {
+            throw new SQLException("Falha ao deletar reserva. Nenhuma linha modificada.");
+        }
+
+        return true; // Deleção bem-sucedida
+    } catch (SQLException e) {
+        System.out.println("Erro ao deletar reserva: " + e.getMessage());
+    } finally {
+        conexao.fechaConexao();
+    }
+
+    return false;
     }
 
     @Override
@@ -169,6 +237,11 @@ public class ReservaDAO implements InterfaceDAO<Reserva, Integer>{
 
     return -1;
 }
+
+    @Override
+    public List<Reserva> listarItens() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
     
 }

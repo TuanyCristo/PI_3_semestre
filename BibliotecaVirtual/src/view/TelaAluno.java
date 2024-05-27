@@ -101,15 +101,16 @@ public class TelaAluno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void reservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservasActionPerformed
-        TelaReservas telaReservas = new TelaReservas();
+        TelaReservas telaReservas = new TelaReservas(usuario);
         telaReservas.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_reservasActionPerformed
 
     private void livrosDisponiveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_livrosDisponiveisActionPerformed
-
+        if(usuario != null){
         TelaDisponiveis telaDisponiveis = new TelaDisponiveis(usuario);
         telaDisponiveis.setVisible(true);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_livrosDisponiveisActionPerformed
 

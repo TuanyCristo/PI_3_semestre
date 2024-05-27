@@ -15,6 +15,7 @@ public class Reserva  {
     private Usuario user;
     private Date dataReserva;
     private Date dataDevolucao;
+    private int qntLivros;
 
     public Reserva() {
     }
@@ -89,13 +90,15 @@ public class Reserva  {
         livro.add(l);
     }
 
-    @Override
-    public String toString() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        return "Reserva [id=" + id + ", livro=" + livro + ", user=" + user 
-            + ", dataReserva=" + sdf.format(dataReserva) 
-            + ", dataDevolucao=" + sdf.format(dataDevolucao) + "]";
+    public int getQntLivros() {
+        return qntLivros;
     }
+
+    public void setQntLivros(int qntLivros) {
+        this.qntLivros = qntLivros;
+    }
+
+   
     
     
     

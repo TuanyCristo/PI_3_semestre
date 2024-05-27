@@ -11,7 +11,6 @@ import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.livros.Livro;
 import model.user.Usuario;
 
 /**
@@ -50,10 +49,10 @@ public class TelaDisponiveis extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        voltar = new javax.swing.JButton();
-        reservarLivros = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaLivros = new javax.swing.JTable();
+        voltar = new javax.swing.JButton();
+        reservarLivros = new javax.swing.JButton();
         livrosDisponiveis = new javax.swing.JButton();
         reservas = new javax.swing.JButton();
         nomeJLabel = new javax.swing.JLabel();
@@ -63,24 +62,6 @@ public class TelaDisponiveis extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        voltar.setContentAreaFilled(false);
-        voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        voltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                voltarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 473, 150, 40));
-
-        reservarLivros.setContentAreaFilled(false);
-        reservarLivros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        reservarLivros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reservarLivrosActionPerformed(evt);
-            }
-        });
-        getContentPane().add(reservarLivros, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 40));
 
         tabelaLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -110,6 +91,24 @@ public class TelaDisponiveis extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaLivros);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 600, 290));
+
+        voltar.setContentAreaFilled(false);
+        voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        voltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 473, 150, 40));
+
+        reservarLivros.setContentAreaFilled(false);
+        reservarLivros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        reservarLivros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reservarLivrosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(reservarLivros, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 420, 150, 40));
 
         livrosDisponiveis.setContentAreaFilled(false);
         livrosDisponiveis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -163,13 +162,14 @@ public class TelaDisponiveis extends javax.swing.JFrame {
     }//GEN-LAST:event_configContaActionPerformed
 
     private void reservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservasActionPerformed
-        TelaReservas telaReservas = new TelaReservas();
+        dispose();
+        TelaReservas telaReservas = new TelaReservas(usuario);
         telaReservas.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_reservasActionPerformed
 
     private void livrosDisponiveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_livrosDisponiveisActionPerformed
-        TelaDisponiveis telaDisponiveis = new TelaDisponiveis();
+        TelaDisponiveis telaDisponiveis = new TelaDisponiveis(usuario);
         telaDisponiveis.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_livrosDisponiveisActionPerformed
@@ -207,9 +207,7 @@ public class TelaDisponiveis extends javax.swing.JFrame {
     }//GEN-LAST:event_voltarActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
-        TelaLogin telaLogin = new TelaLogin();
-        telaLogin.setVisible(true);
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_sairActionPerformed
 
     /**
@@ -259,6 +257,35 @@ public JLabel getNomeJLabel() {
     private void carregaTabela(){
         controller.carregaLirosDisponiveis(tabelaLivros);
     }
+    
+    public void mostraTabela(){
+        DefaultTableModel model = (DefaultTableModel) tabelaLivros.getModel();
+        int numRows = model.getRowCount();
+        List<Integer> livrosSelecionados = new ArrayList<>();
+
+        for (int i = 0; i < numRows; i++) {
+            Boolean verCheckbox = (Boolean) model.getValueAt(i, 0);
+
+            if (verCheckbox) {
+                
+                Integer idLivro = (Integer) model.getValueAt(i, 1);
+                livrosSelecionados.add(idLivro);
+            }
+        }
+
+        // Faz a reserva dos livros selecionados
+        boolean reservaFeita = conReserva.fazerReserva(usuario.getIdUsuario(), livrosSelecionados);
+
+        if (reservaFeita) {
+            JOptionPane.showMessageDialog(this, "Reserva dos livros selecionados feita com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao fazer reserva dos livros selecionados.");
+        }
+
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton configConta;
     private javax.swing.JScrollPane jScrollPane1;

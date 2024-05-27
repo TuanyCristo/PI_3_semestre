@@ -4,19 +4,39 @@
  */
 package view;
 
+import controller.LivroController;
+import controller.ReservaController;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.user.Usuario;
 
 /**
  *
  * @author isata
  */
 public class TelaReservas extends javax.swing.JFrame {
+    
+    private LivroController controller;
+    private Usuario usuario;
+    private ReservaController  conReserva;
 
     /**
      * Creates new form TelaReservas
      */
     public TelaReservas() {
         initComponents();
+    }
+    
+    public TelaReservas(Usuario user) {
+        initComponents();
+        this.controller = new LivroController();
+        this.usuario = user;
+        this.conReserva = new ReservaController();
+        nomeJLabel.setText(user.getNome());
+        carregaTabela();
     }
 
     /**
@@ -53,23 +73,23 @@ public class TelaReservas extends javax.swing.JFrame {
 
         tabelaReserva.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "", "Data de reserva", "Data de devolução"
+                "ID", "Data de reserva", "Data de devolução", "Livros", "Qnt livros"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -90,7 +110,7 @@ public class TelaReservas extends javax.swing.JFrame {
         getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 150, 90));
 
         nomeJLabel.setFont(new java.awt.Font("Calibri Light", 1, 24)); // NOI18N
-        getContentPane().add(nomeJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 300, 30));
+        getContentPane().add(nomeJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 300, 30));
 
         voltar.setContentAreaFilled(false);
         voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -130,14 +150,36 @@ public class TelaReservas extends javax.swing.JFrame {
         getContentPane().add(devolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 560, 150, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Tela Aluno - tabela - reservas.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void devolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolucaoActionPerformed
-        // TODO add your handling code here:
+DefaultTableModel model = (DefaultTableModel) tabelaReserva.getModel();
+    int numRows = model.getRowCount();
+    List<Integer> reservasParaDevolucao = new ArrayList<>();
+
+    for (int i = 0; i < numRows; i++) {
+        Boolean selecionado = (Boolean) model.getValueAt(i, 0);
+
+        if (Boolean.TRUE.equals(selecionado)) {
+            Integer idReserva = (Integer) model.getValueAt(i, 1);
+            reservasParaDevolucao.add(idReserva);
+        }
+    }
+
+    if (reservasParaDevolucao.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Nenhuma reserva selecionada para devolução.");
+    } else {
+        for (Integer id : reservasParaDevolucao) {
+            conReserva.devolucao(id);
+        }
+        JOptionPane.showMessageDialog(this, "Devolução realizada com sucesso.");
+        carregaTabela(); // Recarregar a tabela após a devolução
+    }        
+        
     }//GEN-LAST:event_devolucaoActionPerformed
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
@@ -147,20 +189,29 @@ public class TelaReservas extends javax.swing.JFrame {
     }//GEN-LAST:event_voltarActionPerformed
 
     private void reservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservasActionPerformed
-        TelaReservas telaReservas = new TelaReservas();
-        telaReservas.setVisible(true);
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tabelaReserva.getModel();
+        int numRows = model.getRowCount();
+        List<Integer> reservaSelecionada = new ArrayList<>();
+
+        for (int i = 0; i < numRows; i++) {
+            Boolean verCheckbox = (Boolean) model.getValueAt(i, 0);
+
+            if (verCheckbox) {
+                
+                Integer idReserva = (Integer) model.getValueAt(i, 1);
+                reservaSelecionada.add(idReserva);
+            }
+        }
     }//GEN-LAST:event_reservasActionPerformed
 
     private void livrosDisponiveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_livrosDisponiveisActionPerformed
-        TelaDisponiveis telaDisponiveis = new TelaDisponiveis();
+        TelaDisponiveis telaDisponiveis = new TelaDisponiveis(usuario);
         telaDisponiveis.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_livrosDisponiveisActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
-        TelaLogin telaLogin = new TelaLogin();
-        telaLogin.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_sairActionPerformed
 
@@ -210,6 +261,10 @@ public class TelaReservas extends javax.swing.JFrame {
 
     public void setNomeJLabel(JLabel nomeJLabel) {
         this.nomeJLabel = nomeJLabel;
+    }
+    
+    private void carregaTabela(){
+        conReserva.carregaReservas(tabelaReserva, usuario.getIdUsuario());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
