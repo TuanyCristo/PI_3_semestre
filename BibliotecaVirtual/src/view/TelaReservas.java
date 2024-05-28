@@ -32,12 +32,11 @@ public class TelaReservas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaReserva = new javax.swing.JTable();
         livrosDisponiveis = new javax.swing.JButton();
-        nomeJLabel = new javax.swing.JLabel();
         voltar = new javax.swing.JButton();
         reservas = new javax.swing.JButton();
         sair = new javax.swing.JButton();
-        devolucao = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        excluir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -49,7 +48,7 @@ public class TelaReservas extends javax.swing.JFrame {
                 configContaActionPerformed(evt);
             }
         });
-        getContentPane().add(configConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 190, 20));
+        getContentPane().add(configConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 190, 20));
 
         tabelaReserva.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -78,7 +77,7 @@ public class TelaReservas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaReserva);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 510, 240));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 510, 240));
 
         livrosDisponiveis.setContentAreaFilled(false);
         livrosDisponiveis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -87,10 +86,7 @@ public class TelaReservas extends javax.swing.JFrame {
                 livrosDisponiveisActionPerformed(evt);
             }
         });
-        getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 150, 90));
-
-        nomeJLabel.setFont(new java.awt.Font("Calibri Light", 1, 24)); // NOI18N
-        getContentPane().add(nomeJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 300, 30));
+        getContentPane().add(livrosDisponiveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 250, 150, 90));
 
         voltar.setContentAreaFilled(false);
         voltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -99,7 +95,7 @@ public class TelaReservas extends javax.swing.JFrame {
                 voltarActionPerformed(evt);
             }
         });
-        getContentPane().add(voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 620, 150, 40));
+        getContentPane().add(voltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 600, 150, 40));
 
         reservas.setContentAreaFilled(false);
         reservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -108,7 +104,7 @@ public class TelaReservas extends javax.swing.JFrame {
                 reservasActionPerformed(evt);
             }
         });
-        getContentPane().add(reservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 160, 100));
+        getContentPane().add(reservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 160, 100));
 
         sair.setBackground(new java.awt.Color(255, 204, 153));
         sair.setForeground(new java.awt.Color(255, 255, 255));
@@ -118,27 +114,27 @@ public class TelaReservas extends javax.swing.JFrame {
                 sairActionPerformed(evt);
             }
         });
-        getContentPane().add(sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 210, 60, 20));
+        getContentPane().add(sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 190, 60, 20));
 
-        devolucao.setContentAreaFilled(false);
-        devolucao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        devolucao.addActionListener(new java.awt.event.ActionListener() {
+        excluir.setContentAreaFilled(false);
+        excluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                devolucaoActionPerformed(evt);
+                excluirActionPerformed(evt);
             }
         });
-        getContentPane().add(devolucao, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 560, 150, 40));
+        getContentPane().add(excluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 540, 150, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Tela Aluno - tabela - reservas.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/imagens/Tela reserva.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 760));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void devolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolucaoActionPerformed
+    private void excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_devolucaoActionPerformed
+    }//GEN-LAST:event_excluirActionPerformed
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
         TelaAluno telaAluno = new TelaAluno();
@@ -218,11 +214,10 @@ public class TelaReservas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton configConta;
-    private javax.swing.JButton devolucao;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton excluir;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton livrosDisponiveis;
-    private javax.swing.JLabel nomeJLabel;
     private javax.swing.JButton reservas;
     private javax.swing.JButton sair;
     private javax.swing.JTable tabelaReserva;

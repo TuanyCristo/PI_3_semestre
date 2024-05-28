@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/isata/OneDrive%20-%20SENAC%20-%20SP/Documentos/Faculdade%20Isa%20Tanisue/1.2024/Programação%20Orientada%20Objeto/PI_3_semestre/BibliotecaVirtual/src/view/TelaCadastro.java</file>
-            <file>file:/C:/Users/isata/OneDrive%20-%20SENAC%20-%20SP/Documentos/Faculdade%20Isa%20Tanisue/1.2024/Programação%20Orientada%20Objeto/PI_3_semestre/BibliotecaVirtual/src/view/TelaAluno.java</file>
-            <file>file:/C:/Users/isata/OneDrive%20-%20SENAC%20-%20SP/Documentos/Faculdade%20Isa%20Tanisue/1.2024/Programação%20Orientada%20Objeto/PI_3_semestre/BibliotecaVirtual/src/view/TelaLogin.java</file>
-            <file>file:/C:/Users/isata/OneDrive%20-%20SENAC%20-%20SP/Documentos/Faculdade%20Isa%20Tanisue/1.2024/Programação%20Orientada%20Objeto/PI_3_semestre/BibliotecaVirtual/src/view/TelaDisponiveis.java</file>
-            <file>file:/C:/Users/isata/OneDrive%20-%20SENAC%20-%20SP/Documentos/Faculdade%20Isa%20Tanisue/1.2024/Programação%20Orientada%20Objeto/PI_3_semestre/BibliotecaVirtual/src/view/TelaReservas.java</file>
-            <file>file:/C:/Users/isata/OneDrive%20-%20SENAC%20-%20SP/Documentos/Faculdade%20Isa%20Tanisue/1.2024/Programação%20Orientada%20Objeto/PI_3_semestre/BibliotecaVirtual/src/view/TelaConfigConta.java</file>
+            <file>file:/C:/Users/steph/OneDrive/Imagens/Documentos/GitHub/PI_3_semestre/BibliotecaVirtual/src/view/TelaAluno.java</file>
+            <file>file:/C:/Users/steph/OneDrive/Imagens/Documentos/GitHub/PI_3_semestre/BibliotecaVirtual/src/controller/LivroController.java</file>
+            <file>file:/C:/Users/steph/OneDrive/Imagens/Documentos/GitHub/PI_3_semestre/BibliotecaVirtual/src/view/TelaConfigConta.java</file>
+            <file>file:/C:/Users/steph/OneDrive/Imagens/Documentos/GitHub/PI_3_semestre/BibliotecaVirtual/src/view/TelaReservas.java</file>
+            <file>file:/C:/Users/steph/OneDrive/Imagens/Documentos/GitHub/PI_3_semestre/BibliotecaVirtual/src/controller/UsuarioController.java</file>
+            <file>file:/C:/Users/steph/OneDrive/Imagens/Documentos/GitHub/PI_3_semestre/BibliotecaVirtual/src/view/TelaCadastro.java</file>
+            <file>file:/C:/Users/steph/OneDrive/Imagens/Documentos/GitHub/PI_3_semestre/BibliotecaVirtual/src/controller/ReservaController.java</file>
         </group>
     </open-files>
 </project-private>
