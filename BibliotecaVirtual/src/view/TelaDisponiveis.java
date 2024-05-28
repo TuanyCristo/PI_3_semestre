@@ -201,8 +201,7 @@ public class TelaDisponiveis extends javax.swing.JFrame {
     }//GEN-LAST:event_reservarLivrosActionPerformed
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
-        TelaAluno telaAluno = new TelaAluno();
-        telaAluno.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_voltarActionPerformed
 

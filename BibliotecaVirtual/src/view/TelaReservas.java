@@ -183,8 +183,7 @@ DefaultTableModel model = (DefaultTableModel) tabelaReserva.getModel();
     }//GEN-LAST:event_devolucaoActionPerformed
 
     private void voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarActionPerformed
-        TelaAluno telaAluno = new TelaAluno(usuario);
-        telaAluno.setVisible(true);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_voltarActionPerformed
 

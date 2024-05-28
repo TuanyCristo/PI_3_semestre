@@ -8,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
@@ -85,10 +86,10 @@ public class ReservaController{
         for (Reserva reserva : reservas) {
             Object[] linha = new Object[5];
             linha[0] = false; // Checkbox
-            linha[1] = reserva.getId(); // Id da reserva
-            linha[2] = dateFormat.format(reserva.getDataReserva()); // Data de reserva formatada
-            linha[3] = dateFormat.format(reserva.getDataDevolucao()); // Data de devolução formatada
-            linha[4] = reserva.getQntLivros(); // Quantidade de livros
+            linha[1] = reserva.getId();
+            linha[2] = dateFormat.format(reserva.getDataReserva());
+            linha[3] = dateFormat.format(reserva.getDataDevolucao());
+            linha[4] = reserva.getQntLivros();
 
             modeloTabela.addRow(linha);
         }
@@ -104,8 +105,8 @@ public class ReservaController{
 
         // Definir altura do cabeçalho
         JTableHeader header = table.getTableHeader();
-        header.setPreferredSize(new Dimension(header.getWidth(), 40)); // Ajuste a altura conforme necessário
-        header.setFont(header.getFont().deriveFont(Font.BOLD)); // Definir fonte em negrito para o cabeçalho
+        header.setPreferredSize(new Dimension(header.getWidth(), 40));
+        header.setFont(header.getFont().deriveFont(Font.BOLD));
     }
 
     

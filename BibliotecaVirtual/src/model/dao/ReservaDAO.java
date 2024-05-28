@@ -129,32 +129,40 @@ public class ReservaDAO implements InterfaceDAO<Reserva, Integer>{
     @Override
     public boolean deletarItem(Integer id) {
         Conexao conexao = new Conexao();
-    con = conexao.criaConexao();
+        Connection con = conexao.criaConexao();
 
-    if (con == null) {
-        System.out.println("Falha ao estabelecer conexão com o banco de dados.");
-        return false;
-    }
-
-    String query = "DELETE FROM reservas WHERE id_reserva = ?";
-
-    try (PreparedStatement pst = con.prepareStatement(query)) {
-        pst.setInt(1, id);
-
-        int linhasModificadas = pst.executeUpdate();
-
-        if (linhasModificadas == 0) {
-            throw new SQLException("Falha ao deletar reserva. Nenhuma linha modificada.");
+        if (con == null) {
+            System.out.println("Falha ao estabelecer conexão com o banco de dados.");
+            return false;
         }
 
-        return true; // Deleção bem-sucedida
-    } catch (SQLException e) {
-        System.out.println("Erro ao deletar reserva: " + e.getMessage());
-    } finally {
-        conexao.fechaConexao();
-    }
+        String query = "DELETE FROM listareserva WHERE id_reserva = ?";
+        String query2 = "DELETE FROM reservas WHERE id_reserva = ?";
 
-    return false;
+        try {
+            con.setAutoCommit(false); // Iniciar transação
+
+            try (PreparedStatement pst1 = con.prepareStatement(query)) {
+                pst1.setInt(1, id);
+                pst1.executeUpdate();
+            }
+
+            try (PreparedStatement pst2 = con.prepareStatement(query2)) {
+                pst2.setInt(1, id);
+                int affectedRows = pst2.executeUpdate();
+                con.commit(); // Confirmar transação
+                return affectedRows > 0;
+            } catch (SQLException e) {
+                con.rollback(); // Reverter transação em caso de erro
+                throw e;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao excluir reserva: " + e.getMessage());
+            return false;
+        } finally {
+            conexao.fechaConexao();
+        }
     }
 
     @Override
