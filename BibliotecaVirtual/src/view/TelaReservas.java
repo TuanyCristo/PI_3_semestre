@@ -4,14 +4,17 @@
  */
 package view;
 
+import controller.UsuarioController;
 import javax.swing.JLabel;
+import model.user.Usuario;
 
 /**
  *
  * @author isata
  */
 public class TelaReservas extends javax.swing.JFrame {
-
+    private UsuarioController controller;
+    private Usuario usuario;
     /**
      * Creates new form TelaReservas
      */
@@ -165,7 +168,14 @@ public class TelaReservas extends javax.swing.JFrame {
     }//GEN-LAST:event_sairActionPerformed
 
     private void configContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configContaActionPerformed
-        // TODO add your handling code here:
+        if(usuario != null){
+            TelaConfigConta tela = new TelaConfigConta(usuario);
+            tela.getNome().setText(usuario.getNome());
+            tela.getEmailc().setText(usuario.getEmailInstitucional());
+            tela.setVisible(true);
+            dispose();
+        } 
+// TODO add your handling code here:
     }//GEN-LAST:event_configContaActionPerformed
 
     /**

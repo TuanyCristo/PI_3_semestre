@@ -159,6 +159,13 @@ public class TelaDisponiveis extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void configContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configContaActionPerformed
+        if(usuario != null){
+            TelaConfigConta tela = new TelaConfigConta(usuario);
+            tela.getNome().setText(usuario.getNome());
+            tela.getEmailc().setText(usuario.getEmailInstitucional());
+            tela.setVisible(true);
+            dispose();
+        } 
         // TODO add your handling code here:
     }//GEN-LAST:event_configContaActionPerformed
 
